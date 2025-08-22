@@ -18,3 +18,8 @@ html, body, #root {
   color: var(--text-color);
   line-height: 1.5;
 }
+
+.link {
+  text-decoration: none;
+  color: var(--text-color);
+}
