@@ -12,8 +12,13 @@
     font-size: 25px;
     line-height: 100%;
     color: #000000B2;
+    cursor: pointer;
 }
 
 .header-links:hover {
-    text-decoration: underline;
+    color: #858383;
+}
+
+.header-cart-icon{
+    font-size: 32px;
 }

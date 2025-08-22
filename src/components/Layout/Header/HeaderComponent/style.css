@@ -1,0 +1,31 @@
+.header-main-container {
+    width: 100%;
+    position: fixed;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #0000004D;
+    background-color: #FFFFFF;
+    padding: 13px 30px;
+    backdrop-filter: blur(13.899999618530273px)
+}
+
+.header-not-auth {
+    margin: 0px 90px;
+}
+
+.header-titile {
+    font-family: Lexend;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 18px;
+    line-height: 40px;
+}
+
+.header-buttons {
+    display: flex;
+    gap: 12px;
+}
