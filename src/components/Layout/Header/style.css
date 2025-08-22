@@ -1,0 +1,46 @@
+.header-main-container {
+    width: 100%;
+    position: fixed;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #0000004D;
+    background-color: #FFFFFF;
+    padding: 20px 25px;
+    backdrop-filter: blur(13.899999618530273px)
+}
+
+.header-not-auth {
+    margin: 0px 90px;
+}
+
+.header-titile {
+    font-family: Lexend;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 18px;
+    line-height: 48px;
+}
+
+
+
+.header-links {
+    font-family: Inter;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 25px;
+    line-height: 100%;
+    color: #000000B2;
+}
+
+.header-links:hover {
+    text-decoration: underline;
+}
+
+.header-buttons {
+    display: flex;
+    gap: 12px;
+}
