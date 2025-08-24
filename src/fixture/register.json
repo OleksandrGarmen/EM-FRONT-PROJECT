@@ -1,0 +1,8 @@
+{
+  "pageTitle": "Реєстрація",
+  "usernameLabel": "Ім'я користувача",
+  "emailLabel": "Email",
+  "passwordLabel": "Пароль",
+  "registerButton": "Зареєструватися",
+  "successMessage": "Реєстрація пройшла успішно!"
+}
