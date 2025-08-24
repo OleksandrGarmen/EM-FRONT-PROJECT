@@ -1,0 +1,63 @@
+.contacts {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.contacts-title {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 30px;
+}
+
+.contact-info p,
+.working-hours p {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.contact-info a {
+  color: #007BFF;
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+.working-hours ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.working-hours li {
+  margin: 5px 0;
+}
+
+.map-container {
+  margin-top: 30px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-button-container {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.email-button {
+  background-color: #007BFF;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.email-button:hover {
+  background-color: #0056b3;
+}
