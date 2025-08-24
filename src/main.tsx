@@ -5,6 +5,14 @@ import App from './App.tsx'
 import AboutUs from './pages/Bookstore/AboutUs/AboutUs.tsx'
 import Contacts from './pages/Bookstore/Contacts/index.tsx'
 import BooksPage from './pages/Bookstore/BooksPage/BooksPage.tsx'
+import { saveToLocalStorage } from './localstorage/localStorageHelper.ts'
+import authors from '../src/fixture/authors.json'
+import categories from '../src/fixture/categories.json'
+import books from '../src/fixture/books.json'
+localStorage.clear()
+saveToLocalStorage("categories", categories)
+saveToLocalStorage("authors", authors)
+saveToLocalStorage("books", books)
 
 createRoot(document.getElementById('root')!).render(
   <BrowserRouter>

@@ -1,3 +1,6 @@
+type ENUM = {
+    
+}
 export type BookType = {
     id: number;
     image: string;
@@ -9,7 +12,7 @@ export type BookType = {
     price: number;
     discountPrice: number;
     pageCount: number;
-    status: ENUM
+    status: ENUM;
     createdAt: string;
     updatedAt: string;
 }
