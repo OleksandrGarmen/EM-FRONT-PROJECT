@@ -1,3 +1,4 @@
+import type { AuthorType } from "../types/AuthorType";
 import type { BookType } from "../types/BookType";
 import type { CategoryType } from "../types/CategoryType";
 
@@ -36,4 +37,8 @@ export function getCategories(): CategoryType[] | null
 export function getBooks(): BookType[] | null
 {
   return getFromLocalStorage<BookType[]>("books") 
+}
+export function getAuthors(): AuthorType[] | null
+{
+  return getFromLocalStorage<AuthorType[]>("authors") 
 }

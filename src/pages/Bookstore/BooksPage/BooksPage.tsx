@@ -1,12 +1,13 @@
 import './style.css'
 import LayoutPage from '../../../layout/layoutPage'
-import { getBooks, getCategories } from '../../../localstorage/localStorageHelper'
+import { getAuthors, getBooks, getCategories } from '../../../localstorage/localStorageHelper'
 import Book from '../../../components/Book'
 import Category from '../../../components/Category'
 
 const BooksPage = () => {
     const books = getBooks()
     const categories = getCategories()
+    const authors = getAuthors()
     return (
         <LayoutPage>
             <div>
@@ -19,6 +20,7 @@ const BooksPage = () => {
                     books ? books.map(element => {
                         return <Book key={element.id} {...element}/>
                     }) : "Книжок немає"
+                
                 }
             </div>
         </LayoutPage>
