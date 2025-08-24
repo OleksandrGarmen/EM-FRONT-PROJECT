@@ -4,7 +4,7 @@ import { Navigate } from "react-router";
 import HeaderLogo from '../HeaderLogo'
 import HeaderMenu from '../HeaderMenu'
 import SearchInput from '../../../Common/Inputs/Search';
-import { FaShoppingCart } from "react-icons/fa";
+// import { FaShoppingCart } from "react-icons/fa";
 
 const Header = () => {
     const SingIn = () => {
@@ -49,7 +49,7 @@ const Header = () => {
                             </li>
                             <li className='header-links'>Account</li>
                             <li className='header-links header-cart-icon'>
-                                <FaShoppingCart />
+                                {/* <FaShoppingCart /> */}
                             </li>
                         </ul>
                     </div>
