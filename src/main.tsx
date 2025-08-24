@@ -9,6 +9,8 @@ import { saveToLocalStorage } from './localstorage/localStorageHelper.ts'
 import authors from '../src/fixture/authors.json'
 import categories from '../src/fixture/categories.json'
 import books from '../src/fixture/books.json'
+import LoginPage from './pages/Authentication/LoginPage/LoginPage.tsx'
+import RegisterPage from './pages/Authentication/RegisterPage/RegisterPage.tsx'
 localStorage.clear()
 saveToLocalStorage("categories", categories)
 saveToLocalStorage("authors", authors)
@@ -21,6 +23,8 @@ createRoot(document.getElementById('root')!).render(
       <Route path='/about-us' element={<AboutUs/>}/>
       <Route path='/books' element={<BooksPage/>}/>
       <Route path='/contacts' element={<Contacts/>}/>
+      <Route path='/login' element={<LoginPage/>}/>
+      <Route path='/register' element={<RegisterPage/>}/>
     </Routes>
   </BrowserRouter>,
 )
