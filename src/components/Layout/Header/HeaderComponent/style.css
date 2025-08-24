@@ -17,14 +17,6 @@
     margin: 0px 90px;
 }
 
-.header-titile {
-    font-family: Lexend;
-    font-weight: 700;
-    font-style: Bold;
-    font-size: 18px;
-    line-height: 40px;
-}
-
 .header-buttons {
     display: flex;
     gap: 12px;
