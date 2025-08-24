@@ -22,9 +22,9 @@ const Header = () => {
                             <HeaderLogo />
                             <HeaderMenu items={[
                                 { name: "Home", link: "/" },
-                                { name: "About us", link: "/about" },
-                                { name: "Book", link: "/book" },
-                                { name: "Contact us", link: "/contact" },
+                                { name: "About us", link: "/about-us" },
+                                { name: "Books", link: "/books" },
+                                { name: "Contact us", link: "/contacts" },
                             ]}/>
                             <div className='header-buttons'>
                                 <SubmitButton text='Sing in' onClick={SingIn}/>
@@ -42,6 +42,7 @@ const Header = () => {
                             { name: "Home", link: "/" },
                             { name: "About us", link: "/about" },
                             { name: "Book", link: "/book" },
+                            { name: "Contact us", link: "/contacts" },
                         ]}/>
                         <ul className='header-menu'>
                             <li className='header-links'>

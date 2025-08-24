@@ -1,14 +1,14 @@
 import './style.css'
 import LayoutPage from '../../../layout/layoutPage'
 
-const HomePage = () => {
+const AboutUs = () => {
     return (
         <LayoutPage>
             <div>
-
+                <p>popa</p>
             </div>
         </LayoutPage>
     )
 }
 
-export default HomePage
+export default AboutUs
