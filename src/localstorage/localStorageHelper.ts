@@ -38,7 +38,3 @@ export function getBooks(): BookType[] | null
 {
   return getFromLocalStorage<BookType[]>("books") 
 }
-export function getAuthors(): AuthorType[] | null
-{
-  return getFromLocalStorage<AuthorType[]>("authors") 
-}
