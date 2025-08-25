@@ -11,6 +11,7 @@ import categories from '../src/fixture/categories.json'
 import books from '../src/fixture/books.json'
 import LoginPage from './pages/Authentication/LoginPage/LoginPage.tsx'
 import RegisterPage from './pages/Authentication/RegisterPage/RegisterPage.tsx'
+import NotFoundPage from './pages/Bookstore/NotFound/index.tsx'
 localStorage.clear()
 saveToLocalStorage("categories", categories)
 saveToLocalStorage("authors", authors)
@@ -25,6 +26,7 @@ createRoot(document.getElementById('root')!).render(
       <Route path='/contacts' element={<Contacts/>}/>
       <Route path='/login' element={<LoginPage/>}/>
       <Route path='/register' element={<RegisterPage/>}/>
+      <Route path='*' element={<NotFoundPage/>}/>
     </Routes>
   </BrowserRouter>,
 )
