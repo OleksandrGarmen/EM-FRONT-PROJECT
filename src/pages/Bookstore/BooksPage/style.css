@@ -1,14 +1,13 @@
 .categories {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 10px;     
-    padding-left: 190px;
     margin: 20px;
-    
+    font-size:large;
+    padding-left: 150px;
 }
 .books {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 10px;     
-    padding-left: 130px;
+    gap: 20px;
+    text-align: center;
 }
