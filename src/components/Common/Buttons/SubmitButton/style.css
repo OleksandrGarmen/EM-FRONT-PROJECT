@@ -1,13 +1,14 @@
 .submit-button {
     border-radius: 9px;
-    background: #DB5408;
     color: #fff;
     transition: all 0.3s ease;
     padding: 13px 26px;
     border: none;
+    background-color: var(--background-color-second);
+    width: 100%;
 }
 
 .submit-button:hover {
-    background: #e45f00;
+    background-color: var(--background-color-main);
     transition: all 0.3s ease;
 }

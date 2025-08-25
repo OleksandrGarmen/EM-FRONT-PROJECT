@@ -4,28 +4,26 @@ import { Navigate } from "react-router";
 import HeaderLogo from '../HeaderLogo'
 import HeaderMenu from '../HeaderMenu'
 import SearchInput from '../../../Common/Inputs/Search';
-// import { FaShoppingCart } from "react-icons/fa";
+import { FilteredHeader } from '../../../../utils/FiltredHeaderMenu';
 
 const Header = () => {
+    const isAuthenticated = !!localStorage.getItem('isAuthenticated')
+
     const SingIn = () => {
         return <Navigate to="/login" replace />
     }
     const JoinUs = () => {
         return <Navigate to="/register" replace />
     }
+
     return (
         <header className='header-main-container'>
             {
-                !localStorage.getItem('isAuthenticated') && (
+                !isAuthenticated && (
                     <>
                         <div className='header-container header-not-auth'>
                             <HeaderLogo />
-                            <HeaderMenu items={[
-                                { name: "Home", link: "/" },
-                                { name: "About us", link: "/about-us" },
-                                { name: "Books", link: "/books" },
-                                { name: "Contact us", link: "/contacts" },
-                            ]}/>
+                            <HeaderMenu items={FilteredHeader()}/>
                             <div className='header-buttons'>
                                 <SubmitButton text='Sing in' onClick={SingIn}/>
                                 <SubmitButton text='Join us' onClick={JoinUs}/>
@@ -35,15 +33,10 @@ const Header = () => {
                 )
             }
             {
-                localStorage.getItem('isAuthenticated') && (
+                isAuthenticated && (
                     <div className='header-container header-auth'>
                         <HeaderLogo />
-                        <HeaderMenu items={[
-                            { name: "Home", link: "/" },
-                            { name: "About us", link: "/about" },
-                            { name: "Book", link: "/book" },
-                            { name: "Contact us", link: "/contacts" },
-                        ]}/>
+                        <HeaderMenu items={FilteredHeader()}/>
                         <ul className='header-menu'>
                             <li className='header-links'>
                                 <SearchInput placeholder='Search'/>

@@ -1,5 +1,5 @@
 import Header from "./HeaderComponent";
-import Sitebar from "../Sitebar";
+import Sitebar from "../Sitebar/SitebarComponent";
 import { useEffect, useState } from "react";
 
 const ResponsiveHeader = () => {
