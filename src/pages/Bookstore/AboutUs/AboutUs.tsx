@@ -6,7 +6,6 @@ const AboutUs = () => {
         <LayoutPage>
             <div className="about-us-container">
                 <h1 className="hero-title">Ласкаво просимо до Book Heaven</h1>
-                <p className="hero-subtitle">Місце, де кожна книга знаходить свого читача</p>
                 <section className="section">
                     <h2>Наша історія</h2>
                     <p>
