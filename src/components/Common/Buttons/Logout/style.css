@@ -1,0 +1,12 @@
+.logout-button {
+    width: 100%;
+    height: var(--height);
+    background-color: var(--background-color-second);
+    color: #ffffff;
+    border: none;
+    border-radius: var(--border-radius);
+}
+
+/* .logout-button:hover {
+    background-color: var(--background-color-second)
+} */

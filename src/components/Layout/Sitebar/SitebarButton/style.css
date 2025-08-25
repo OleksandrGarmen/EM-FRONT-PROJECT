@@ -1,0 +1,38 @@
+.sitebar-component {
+    list-style: none;
+    padding: 5px;
+}
+
+.sitebar-list {
+    width: 100%;
+    border-radius: var(--border-radius);
+    height: var(--height);
+    margin-bottom: 10px;
+    padding: 8px;
+
+}
+
+.sitebar-list-active {
+    background-color: var(--background-color-second);
+    transition: all 0.3s ease;
+}
+
+.sitebar-link {
+    width: 100%;
+    color: #5D7285;
+    display: flex;
+    align-items: center;
+}
+
+.sitebar-link:hover {
+    text-decoration: underline;
+}
+
+.sitebar-link-active {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.sitebar-list-active:hover {
+    background-color: var(--background-color-main);
+}

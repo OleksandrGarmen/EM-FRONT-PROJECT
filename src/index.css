@@ -8,6 +8,10 @@
   --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   --background-color: #ffffff;
   --text-color: #000000;
+  --border-radius: 9px;
+  --height: 40px;
+  --background-color-main: #DB5408;
+  --background-color-second: #e98d58;
 }
 
 html, body, #root {

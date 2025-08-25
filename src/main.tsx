@@ -11,6 +11,7 @@ import categories from '../src/fixture/categories.json'
 import books from '../src/fixture/books.json'
 import LoginPage from './pages/Authentication/LoginPage/LoginPage.tsx'
 import RegisterPage from './pages/Authentication/RegisterPage/RegisterPage.tsx'
+
 localStorage.clear()
 saveToLocalStorage("categories", categories)
 saveToLocalStorage("authors", authors)
