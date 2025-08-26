@@ -6,7 +6,9 @@ const LayoutPage = ({children} : {children:React.ReactNode}) => {
     return (
         <div className='layout-page'>
             <ResponsiveHeader />
-            {children}
+            <div className='content'>
+                {children}
+            </div>
             <Footer />
         </div>
     )
