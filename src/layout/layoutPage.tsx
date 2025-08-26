@@ -4,7 +4,7 @@ import Footer from '../components/Layout/Footer/FooterComponent'
 
 const LayoutPage = ({children, pageClass} : {children:React.ReactNode, pageClass?: string}) => {
     return (
-        <div className={`layout-page ${pageClass || ''}`}>
+        <div className='layout-page'>
             <ResponsiveHeader />
             <div className='content'>
                 {children}
