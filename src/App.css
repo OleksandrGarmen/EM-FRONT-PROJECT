@@ -1,8 +1,22 @@
+.title-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1200px;
+    height: 800px;
+    height: 100%;
+    background-color: #FFC581;
+    z-index: 0;
+}
+
 .title-container {
     display: flex;
     align-items: center;
     position: relative;
     overflow: visible;
+    min-height: 500px;
+    padding: 0;
+    width: 100%;
 }
 
 .title-container-left {
@@ -11,9 +25,17 @@
     align-items: flex-start;
     min-width: 600px;
     height: 100%;
-    background-color: #FFC581;
+    padding: 50px 100px;
 }
 
+.title-content-wrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    padding: 0 100px;
+    z-index: 2;
+}
 
 .title-container-title {
     font-family: Inter;
@@ -45,4 +67,3 @@
     width: 570px;
     height: auto;
 }
-
