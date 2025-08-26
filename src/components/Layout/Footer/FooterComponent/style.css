@@ -38,9 +38,9 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  border-top: 1px solid #000;
-  padding-top: 1.5rem;
-  margin-top: 1.5rem;
+  border-bottom: 1px solid #000;
+  padding-top: 2.3rem;
+  margin-top: -100px
 }
 
 .footer-bottom {
@@ -48,7 +48,11 @@
   font-size: 0.9rem;
 }
 
-.social-icons img {
+.social-icons {
   width: 20px;
   margin: 0 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  float: right;
 }
