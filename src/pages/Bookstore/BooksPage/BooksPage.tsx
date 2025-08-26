@@ -23,7 +23,7 @@ const BooksPage = () => {
                         : "Категорій немає"
                 } 
             </div>
-            <div className='books'>
+            <div className='popular-books'>
                 {
                     allBooks && allBooks.length > 0
                         ? allBooks.map(element => {

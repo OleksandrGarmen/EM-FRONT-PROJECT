@@ -7,6 +7,7 @@ import books from './fixture/books.json'
 import type { BookType } from './types/BookType';
 import authors from './fixture/authors.json'
 import type { AuthorType } from './types/AuthorType';
+import Carousel from './components/Common/Carousel/index'
 
 import './App.css'
 let bookData:BookType[] = books
@@ -30,7 +31,10 @@ function App() {
             <div className='title-container-bottom'>
               <div>
                 <SearchInput placeholder='Type your books here' backgroudColor='#9b9b9b' color='#000000' />
-              </div><SubmitButton text='Search Now' />
+              </div>
+              <div>
+                <SubmitButton text='Search Now' />
+              </div>
             </div>
           </div>
           <div>
@@ -61,6 +65,9 @@ function App() {
           <div className='alert-button'>
             <SubmitButton text='Start Buying'/>
           </div>
+      </div>
+      <div className='image-slider-main'>
+        <Carousel />
       </div>
     </LayoutPage>
   )
