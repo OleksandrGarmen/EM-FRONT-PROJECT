@@ -12,7 +12,6 @@ export type BookType = {
   description: string;
   price: number;
   discountPrice: number;
-  children:React.ReactNode
   pageCount: number;
   status: ENUM
   createdAt: string;
