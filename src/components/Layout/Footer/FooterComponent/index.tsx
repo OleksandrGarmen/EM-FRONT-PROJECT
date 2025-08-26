@@ -1,8 +1,14 @@
 import './style.css'
 import SubmitButton from '../../../Common/Buttons/SubmitButton'
 import { Navigate } from "react-router";
+<<<<<<< HEAD
 import FooterLogo from '../FooterLogo'
 import FooterMenu from '../FooterMenu'
+=======
+import SubscribeForm from '../../../Common/Inputs/SubscribeForm';
+import HeaderLogo from '../FooterLogo'
+import HeaderMenu from '../FooterMenu'
+>>>>>>> 8e5e20d2e2ed3b112f0c054e52b8d89b39b57b50
 import SearchInput from '../../../Common/Inputs/Search';
 import { FilteredHeader } from '../../../../utils/FiltredHeaderMenu';
 import { FooterFixture } from '../../../../fixture/FooterFixture';
@@ -21,6 +27,7 @@ const Footer = () => {
     }
 
     return (
+<<<<<<< HEAD
  <footer className="footer">
           <div className="subscribe-box">
             <p className="subscribe-title">Subscribe our new offers !</p>
@@ -29,6 +36,13 @@ const Footer = () => {
               <button>Subscribe</button>
             </div>
           </div>
+=======
+       <footer className="footer">
+      <div className="subscribe-box">
+        <p className="subscribe-title">Subscribe our new offers !</p>
+        <SubscribeForm />
+      </div>
+>>>>>>> 8e5e20d2e2ed3b112f0c054e52b8d89b39b57b50
 
           <div className="footer-main">
             <FooterLogo/>
