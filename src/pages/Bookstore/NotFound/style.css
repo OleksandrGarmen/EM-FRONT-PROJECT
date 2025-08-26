@@ -4,6 +4,9 @@
     text-align: center;
 }
 .main-photo {
-    margin-top: 20px;
-    margin-left: 400px;
+    display: flex;
+    width: 1200px;
+    align-items: center;
+    justify-content: center;
+    
 }
