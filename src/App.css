@@ -2,8 +2,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 1200px;
-    height: 800px;
+    width: 1400px;
     height: 100%;
     background-color: #FFC581;
     z-index: 0;
@@ -19,13 +18,17 @@
     width: 100%;
 }
 
+.title-container-box {
+    width: 40vw;
+}
+
 .title-container-left {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    min-width: 600px;
     height: 100%;
     padding: 50px 100px;
+    gap: 25px;
 }
 
 .title-content-wrapper {
@@ -56,9 +59,9 @@
 }
 
 .title-container-bottom {
-    width: 100%;
+    width: 40vw;
     display: flex;
-    gap: 5px;
+    gap: 15px;
 }
 
 .title-image {
@@ -66,4 +69,251 @@
     top: 50px;
     width: 570px;
     height: auto;
+}
+
+@media screen and (min-width: 1200px) {
+    .title-background {
+        width: 50vw;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .title-background {
+        width: 100%;
+    }
+
+    .title-content-wrapper {
+        padding: 0 50px;
+    }
+    
+    .title-container-left {
+        max-width: 500px;
+        padding: 40px 50px;
+    }
+    
+    .title-container-title {
+        font-size: 48px;
+    }
+    
+    .title-image {
+        width: 450px;
+        right: -60px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .title-background {
+        display: none;
+    }
+
+    .title-container {
+        flex-direction: column;
+        min-height: auto;
+        padding: 20px 0;
+    }
+    
+    .title-content-wrapper {
+        flex-direction: column;
+        padding: 0 30px;
+        gap: 30px;
+    }
+    
+    .title-container-left {
+        min-width: auto;
+        width: 100%;
+        padding: 30px 0;
+        text-align: center;
+        align-items: center;
+    }
+    
+    .title-container-title {
+        font-size: 36px;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+    
+    .title-container-text {
+        font-size: 18px;
+        text-align: center;
+        margin-bottom: 25px;
+    }
+    
+    .title-container-bottom {
+        flex-direction: column;
+        gap: 15px;
+        max-width: 400px;
+    }
+    
+    .title-image {
+        position: static;
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+    }
+    
+    .title-background {
+        position: relative;
+        width: 100%;
+        min-height: 200px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .title-content-wrapper {
+        padding: 0 20px;
+        gap: 20px;
+    }
+    
+    .title-container-left {
+        padding: 20px 0;
+    }
+    
+    .title-container-title {
+        font-size: 28px;
+        line-height: 110%;
+    }
+    
+    .title-container-text {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+    
+    .title-container-bottom {
+        max-width: 100%;
+    }
+    
+    .title-image {
+        max-width: 300px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .title-container-title {
+        font-size: 24px;
+    }
+    
+    .title-container-text {
+        font-size: 14px;
+    }
+    
+    .title-image {
+        max-width: 250px;
+    }
+}
+
+
+@media screen and (max-width: 1024px) {
+    .content {
+        padding: 0 50px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .content {
+        padding: 0 30px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .content {
+        padding: 0 20px;
+    }
+}
+
+
+@media screen and (max-width: 1024px) {
+    .header-not-auth {
+        margin: 0px 50px;
+    }
+    
+    .header-container {
+        padding: 10px 20px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .header-not-auth {
+        margin: 0px 20px;
+    }
+    
+    .header-container {
+        padding: 8px 15px;
+        flex-wrap: wrap;
+    }
+    
+    .header-buttons {
+        gap: 8px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .header-not-auth {
+        margin: 0px 10px;
+    }
+    
+    .header-container {
+        padding: 5px 10px;
+    }
+    
+    .header-buttons {
+        flex-direction: column;
+        gap: 5px;
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .header-menu {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .header-links {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .header-menu {
+        gap: 10px;
+    }
+    
+    .header-links {
+        font-size: 18px;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .book-heaven-logo {
+        width: 35px;
+    }
+    
+    .header-titile {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .book-heaven-logo {
+        width: 30px;
+    }
+    
+    .header-titile {
+        font-size: 12px;
+    }
+}
+
+/* /// */
+
+.popular-books-container {
+    font-family: Inter;
+    font-weight: 800;
+    font-style: Extra Bold;
+    font-size: 25px;
+    line-height: 100%;
+    letter-spacing: 0%;
 }

@@ -1,8 +1,13 @@
 {
   "compilerOptions": {
+    "target": "es2015",
+    "lib": ["dom", "es2015"],
+    "module": "esnext",
+    "moduleResolution": "node10",
     "jsx": "react-jsx",
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "strict": true
   }
 }
