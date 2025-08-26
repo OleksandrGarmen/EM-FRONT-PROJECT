@@ -5,8 +5,17 @@
     padding: 13px 26px;
     border: none;
     background-color: var(--background-color-second);
-    width: 100%;
+    white-space: nowrap;
+    display: inline-block;
+    font-family: Inter;
+    font-weight: 500;
+    font-style: Extra Bold;
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: 0%;
+
 }
+
 
 .submit-button:hover {
     background-color: var(--background-color-main);

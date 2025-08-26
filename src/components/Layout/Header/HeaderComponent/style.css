@@ -1,6 +1,7 @@
 .header-main-container {
     width: 100%;
     position: static;
+    z-index: 2;
 }
 
 .header-container {
