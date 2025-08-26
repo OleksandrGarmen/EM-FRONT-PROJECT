@@ -1,6 +1,6 @@
 import './style.css'
 import ResponsiveHeader from '../components/Layout/Header/ResponsiveHeader'
-import Footer from '../components/Layout/Footer'
+import Footer from '../components/Layout/Footer/FooterComponent'
 
 const LayoutPage = ({children} : {children:React.ReactNode}) => {
     return (

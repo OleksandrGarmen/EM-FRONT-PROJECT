@@ -1,0 +1,54 @@
+.footer {
+  background: #f7b977;
+  padding: 2rem;
+  text-align: center;
+}
+
+.subscribe-box {
+  margin-bottom: 2rem;
+}
+
+.subscribe-title {
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.subscribe-form {
+  display: inline-flex;
+  border: 1px solid #d97706;
+  border-radius: 25px;
+  overflow: hidden;
+}
+
+.subscribe-form input {
+  border: none;
+  padding: 0.6rem 1rem;
+  outline: none;
+}
+
+.subscribe-form button {
+  background: #c2410c;
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+}
+
+.footer-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-top: 1px solid #000;
+  padding-top: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.footer-bottom {
+  margin-top: 2rem;
+  font-size: 0.9rem;
+}
+
+.social-icons img {
+  width: 20px;
+  margin: 0 8px;
+}
