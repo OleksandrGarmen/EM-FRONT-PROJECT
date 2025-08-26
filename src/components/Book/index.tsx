@@ -6,7 +6,7 @@ const Book = (props:BookType) =>{
                <div className="image"><img src={props.image}></img></div>
                 <div className="title">{props.title}</div>
                 <div className="children">{props.children}</div>
-                 <div className="pageCount">{props.pageCount}</div>
+                 <div className="pageCount"><p>{props.pageCount} pages</p></div>
                 </div>
     )
 }

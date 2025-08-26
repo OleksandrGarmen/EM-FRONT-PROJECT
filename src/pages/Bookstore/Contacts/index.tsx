@@ -23,7 +23,7 @@ const Contacts = () => {
                     width="100%"
                     height="580"></iframe>
                 </div>
-                <SubmitButton text='Написати нам'>
+                <SubmitButton text='Написати нам' link='/'>
                 </SubmitButton>
             </div>    
         </LayoutPage>

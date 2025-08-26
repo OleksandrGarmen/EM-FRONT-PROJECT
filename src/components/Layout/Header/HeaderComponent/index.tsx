@@ -6,6 +6,17 @@ import HeaderMenu from '../HeaderMenu'
 import SearchInput from '../../../Common/Inputs/Search';
 import { FilteredHeader } from '../../../../utils/FiltredHeaderMenu';
 
+let data = [
+        {
+            name: "Join In",
+            link: "/login"
+        },
+        {
+            name: "Join Us",
+            link: "/register"
+        }
+    ]
+    
 const Header = () => {
     const isAuthenticated = !!localStorage.getItem('isAuthenticated')
 
@@ -25,8 +36,8 @@ const Header = () => {
                             <HeaderLogo />
                             <HeaderMenu items={FilteredHeader()}/>
                             <div className='header-buttons'>
-                                <SubmitButton text='Sing in' onClick={SingIn}/>
-                                <SubmitButton text='Join us' onClick={JoinUs}/>
+                                <SubmitButton text='Sing in' link='/register'/>
+                                <SubmitButton text='Join us' link='/login'/>
                             </div>
                         </div>
                     </>

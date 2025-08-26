@@ -8,11 +8,6 @@ const FooterLogo = () => {
             <img src={bookShelv} alt="Book Haven" className="logo-img" />
             <h2 className="logo-text">Book Haven</h2>
         </div>
-          <select className="language-selector">
-                <option>English</option>
-                <option>Ukrainian</option>
-                <option>Polish</option>
-            </select>
         </div>
     )
 }

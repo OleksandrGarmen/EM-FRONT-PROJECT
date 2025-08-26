@@ -22,4 +22,6 @@
 .header-buttons {
     display: flex;
     gap: 12px;
+    text-decoration:none;
+    color:white
 }

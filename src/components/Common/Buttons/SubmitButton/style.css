@@ -14,10 +14,10 @@
     line-height: 100%;
     letter-spacing: 0%;
     cursor: pointer;
+    
 }
-
-
 .submit-button:hover {
     background-color: var(--background-color-main);
     transition: all 0.3s ease;
 }
+

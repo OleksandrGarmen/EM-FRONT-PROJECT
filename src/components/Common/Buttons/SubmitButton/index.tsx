@@ -1,9 +1,10 @@
+import { Link } from 'react-router'
 import './style.css'
 
-const SubmitButton = ({ text, onClick, backgroudColor = "#DB5408"} : { text: string, onClick?: React.MouseEventHandler<HTMLButtonElement>, backgroudColor?:string }) => {
+const SubmitButton = ({ text, link, backgroudColor = "#DB5408"} : { text: string, link?:string, backgroudColor?:string }) => {
     return (
-        <button className={`submit-button ${backgroudColor ? 'custom' : ''}`} onClick={onClick}>
-            {text}
+        <button className={`submit-button ${backgroudColor ? 'custom' : ''}`} >
+           <a href={link} className='link'>{text}</a>
         </button>
     )
 }
