@@ -1,9 +1,11 @@
 .categories {
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    margin: 20px;
-    font-size:large;
-    padding-left: 150px;
+    grid-template-columns: repeat(7, 200px);
+    margin: 10px;
+    text-align: center;
+    padding-left: 120px;
+    font-size: larger;
+
 }
 .books {
     display: grid;

@@ -1,6 +1,6 @@
 import './style.css'
 import LayoutPage from '../../../layout/layoutPage'
-
+import SubmitButton from '../../../components/Common/Buttons/SubmitButton'
 const Contacts = () => {
     return (
         <LayoutPage>
@@ -13,11 +13,9 @@ const Contacts = () => {
                 </div>
                 <div className="working-hours">
                     <p><strong>Графік роботи:</strong></p>
-                    <ul>
-                        <li>Пн–Пт: 08:00–18:00</li>
-                        <li>Сб: 10:00–16:00</li>
-                        <li>Нд: вихідний</li>
-                    </ul>
+                        <p>Пн–Пт: 08:00–18:00</p>
+                        <p>Сб: 10:00–16:00</p>
+                        <p>Нд: вихідний</p>
                 </div>
                 <div className="map-container">
                     <iframe
@@ -25,9 +23,8 @@ const Contacts = () => {
                     width="100%"
                     height="580"></iframe>
                 </div>
-                <div className="contact-button-container">
-                    <a href="/" className="email-button">Написати нам</a>
-                </div>
+                <SubmitButton text='Написати нам'>
+                </SubmitButton>
             </div>    
         </LayoutPage>
     )

@@ -8,7 +8,7 @@ import { CategoryType } from '../../../types/CategoryType'
 import { BookType } from '../../../types/BookType'
 
 const allBooks = getBooks()
-const allAuthors = getAuthors()
+const allAuthors  = getAuthors()
 const allCategories = getCategories()
 
 const BooksPage = () => {
