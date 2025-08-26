@@ -1,0 +1,20 @@
+.subscribe-form {
+  display: inline-flex;
+  border: 1px solid #d97706;
+  border-radius: 25px;
+  overflow: hidden;
+}
+
+.subscribe-form input {
+  border: none;
+  padding: 0.6rem 1rem;
+  outline: none;
+}
+
+.subscribe-form button {
+  background: #c2410c;
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+}
