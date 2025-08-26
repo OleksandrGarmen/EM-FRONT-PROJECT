@@ -1,6 +1,7 @@
 import './style.css'
 import SubmitButton from '../../../Common/Buttons/SubmitButton'
 import { Navigate } from "react-router";
+import SubscribeForm from '../../../Common/Inputs/SubscribeForm';
 import HeaderLogo from '../FooterLogo'
 import HeaderMenu from '../FooterMenu'
 import SearchInput from '../../../Common/Inputs/Search';
@@ -21,10 +22,7 @@ const Footer = () => {
        <footer className="footer">
       <div className="subscribe-box">
         <p className="subscribe-title">Subscribe our new offers !</p>
-        <div className="subscribe-form">
-          <input type="email" placeholder="Input your email" />
-          <button>Subscribe</button>
-        </div>
+        <SubscribeForm />
       </div>
 
       <div className="footer-main">
