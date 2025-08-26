@@ -14,7 +14,7 @@ let allAuthors:AuthorType[] = authors
 
 function App() {
   return (
-    <LayoutPage pageClass="home-page">
+    <LayoutPage>
       <div className='title-container'>
         <div className='title-background'></div>
         <div className='title-content-wrapper'>
@@ -38,12 +38,12 @@ function App() {
           </div>
         </div>
       </div>
-      <div>
-        <h2 className='popular-books-container'>
+      <div className='popular-books-container'>
+        <h2 className='popular-books-title'>
           Popular Books
         </h2>
         <div className='popular-books'>
-          { bookData.map(element => {
+          { bookData.slice(0, 8).map(element => {
               const author = allAuthors.find(a => a.id === element.authorId);
               return (
                   <Book key={element.id} {...element}>
@@ -54,6 +54,13 @@ function App() {
               )
           })}
         </div>
+      </div>
+      <div className='alert-container'>
+          <h2 className='alert-title'>Start your reading journey</h2>
+          <p className='alert-text'>No subscription needed. Drive into a world of stories today.</p>
+          <div className='alert-button'>
+            <SubmitButton text='Start Buying'/>
+          </div>
       </div>
     </LayoutPage>
   )

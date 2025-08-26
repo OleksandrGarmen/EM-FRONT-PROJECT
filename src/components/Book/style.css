@@ -1,0 +1,31 @@
+.book-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    max-width: 350px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.book-container:hover {
+    transform: scale(1.05);
+}
+
+
+.about-book {
+    text-align: left;
+    font-family: Inter;
+    font-weight: 300;
+    font-style: Light;
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: 0%;
+}
+
+.book-children {
+    color: #747474;
+}
+
+.book-price {
+    color: #DB5408;
+}
