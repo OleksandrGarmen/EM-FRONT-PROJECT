@@ -1,7 +1,7 @@
-import type { CategoryType} from "../../types/CategoryType"
+import type { Category} from "../../types/CategoryType"
 
 
-const Category = (props:CategoryType) =>{
+const CategoryComponent = (props:Category) =>{
     return (
             <div className="author">
                 <div className="name">
@@ -11,4 +11,4 @@ const Category = (props:CategoryType) =>{
     )
 }
 
-export default Category
+export default CategoryComponent

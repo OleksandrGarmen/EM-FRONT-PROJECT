@@ -99,9 +99,6 @@
 }
 
 @media screen and (max-width: 1024px) {
-    .title-background {
-        width: 100%;
-    }
 
     .title-content-wrapper {
         display: flex;
@@ -356,19 +353,6 @@
     justify-items: center;
 }
 
-
-@media screen and (min-width: 1400px) {
-    .popular-books {
-        grid-template-columns: repeat(5, 1fr);
-    }
-}
-
-@media screen and (min-width: 1800px) {
-    .popular-books {
-        grid-template-columns: repeat(6, 1fr);
-    }
-}
-
 @media screen and (max-width: 1024px) {
     .popular-books {
         grid-template-columns: repeat(3, 1fr);
@@ -430,6 +414,18 @@
 .image-slider-main {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
+    flex-direction: column;
     margin: 10px;
+    min-height: 500px;
+    gap: 20px;
+}
+
+.image-slider-title {
+    font-family: Inter;
+    font-weight: 600;
+    font-style: Semi Bold;
+    font-size: 60px;
+    line-height: 100%;
+    letter-spacing: 0%;
 }

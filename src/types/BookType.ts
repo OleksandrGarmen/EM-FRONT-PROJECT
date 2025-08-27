@@ -2,7 +2,7 @@
 type ENUM = {
     
 }
-export type BookType = {
+export type Book = {
   id: number;
   image: string;
   categoryId: number;

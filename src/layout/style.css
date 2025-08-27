@@ -1,6 +1,13 @@
-.content {
-    padding: 0px 100px;
+.layout-page {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+}
+
+.content {
+    flex: 1;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
 }
