@@ -6,8 +6,6 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 1400px;
-    height: 100%;
     background-color: #FFC581;
     z-index: 0;
 }
@@ -19,18 +17,12 @@
     overflow: visible;
     min-height: 500px;
     padding: 0;
-    width: 100%;
-}
-
-.title-container-box {
-    width: 40vw;
 }
 
 .title-container-left {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    height: 100%;
     padding: 50px 100px;
     gap: 25px;
 }
@@ -38,7 +30,6 @@
 .title-content-wrapper {
     display: flex;
     align-items: center;
-    width: 100%;
     justify-content: space-between;
     padding: 0 100px;
     z-index: 2;
@@ -63,17 +54,76 @@
 }
 
 .title-container-bottom {
-    width: 40vw;
     display: flex;
     gap: 15px;
 }
 
 .title-image {
-    right: -80px;
     top: 50px;
     width: 570px;
     height: auto;
 }
+
+.alert-container {
+    background: linear-gradient(135deg, #FFC581, #FFB366);
+    margin: clamp(20px, 3vw, 40px) 0;
+    min-height: 250px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(30px, 5vw, 60px) 20px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.alert-title {
+    font-family: Inter, sans-serif;
+    font-weight: 800;
+    font-size: clamp(24px, 4vw, 50px);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+.alert-text {
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-size: clamp(16px, 2.5vw, 24px);
+    line-height: 1.4;
+    margin-bottom: 2rem;
+    max-width: 600px;
+}
+
+.alert-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    min-height: 60px;
+}
+
+.image-slider-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: clamp(40px, 5vw, 60px) 0;
+    min-height: 400px;
+    gap: clamp(20px, 3vw, 40px);
+    padding: 0 20px;
+}
+
+.image-slider-title {
+    font-family: Inter, sans-serif;
+    font-weight: 600;
+    font-size: clamp(28px, 4vw, 48px);
+    line-height: 1.2;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
 
 @media screen and (min-width: 1200px) {
     .title-image {
@@ -85,10 +135,47 @@
         position: absolute;
         right: 10;
         left: 0;
-        width: 90vh;
+        width: 800px;
         height: 100%;
         background-color: #FFC581;
-        z-index: 0;
+    }
+
+    .title-container-left {
+        padding: 25px 0px;
+        gap: 25px;
+    }
+
+}
+
+@media screen and (min-width: 1400px) {
+    .title-background {
+        width: 70%;
+        left: auto;
+    }
+    
+    .popular-books {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 40px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .title-image {
+        width: 380px;
+        right: -60px;
+    }
+
+    .title-background {
+        position: absolute;
+        right: 10;
+        left: 0;
+        width: 800px;
+        height: 100%;
+        background-color: #FFC581;
+    }
+
+    .title-container-title {
+        font-size: 48px;
     }
 
     .title-container-left {
@@ -99,6 +186,10 @@
 }
 
 @media screen and (max-width: 1024px) {
+
+    .title-background {
+        display: none;
+    }
 
     .title-content-wrapper {
         display: flex;
@@ -126,9 +217,7 @@
 }
 
 @media screen and (max-width: 768px) {
-    .title-background {
-        display: none;
-    }
+    
 
     .title-container {
         flex-direction: column;
@@ -373,59 +462,3 @@
     }
 }
 
-.alert-container {
-    background-color: #FFC581;
-    margin: 10px;
-    height: 300px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: space-around;
-}
-
-.alert-title {
-    text-align: center;
-    font-family: Inter;
-    font-weight: 800;
-    font-style: Extra Bold;
-    font-size: 50px;
-    line-height: 100%;
-    letter-spacing: 0%;
-}
-
-.alert-text {
-    text-align: center;
-    font-family: Inter;
-    font-weight: 400;
-    font-style: Extra Bold;
-    font-size: 25px;
-    line-height: 100%;
-    letter-spacing: 0%;
-}
-
-.alert-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 420px;
-    height: 80px;
-}
-
-.image-slider-main {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    flex-direction: column;
-    margin: 10px;
-    min-height: 500px;
-    gap: 20px;
-}
-
-.image-slider-title {
-    font-family: Inter;
-    font-weight: 600;
-    font-style: Semi Bold;
-    font-size: 60px;
-    line-height: 100%;
-    letter-spacing: 0%;
-}

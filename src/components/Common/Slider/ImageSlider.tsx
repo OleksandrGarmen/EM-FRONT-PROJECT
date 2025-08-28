@@ -3,16 +3,16 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css'
 import { Pagination } from 'swiper/modules';
 import { Star } from "lucide-react";
-import { color } from 'motion';
+import { useNavigate } from "react-router"
+import { Review } from '../../../types/Feedback';
 
-interface Feedback {
-  avatar_url: string;
-  full_name: string;
-  rating: number;
-  review_text: string;
-}
+const ImgSlider = ({ feedbackFixture }: { feedbackFixture: Review[] }) => {
+    const navigate = useNavigate()
 
-const ImgSlider = ({ feedbackFixture }: { feedbackFixture: Feedback[] }) => {
+    const redirect = (id: number) => {
+      navigate(`/review/${id}`)
+    }
+
     const stars = (rating: number) => {
     return Array.from({ length: rating }, (_, i) => (
       <Star 
@@ -20,8 +20,11 @@ const ImgSlider = ({ feedbackFixture }: { feedbackFixture: Feedback[] }) => {
         style={{ color: "gold" }} 
         fill="gold" 
       />
-    ))
-  }
+    ))}
+
+    const truncateText = (text: string, maxLength: number) => {
+      return text.length > maxLength ? text.slice(0, maxLength) + "..." : text;
+    }
 
     return (
         <Swiper
@@ -34,7 +37,7 @@ const ImgSlider = ({ feedbackFixture }: { feedbackFixture: Feedback[] }) => {
         className="my-swiper"
         >
       {feedbackFixture.map((element, index) => (
-        <SwiperSlide key={index} className="swiper-slide">
+        <SwiperSlide key={element.id} className="swiper-slide" onClick={() => redirect(element.id)}>
             <header className='sllider-header'>
                 <div className='sllider-avatar-container'>
                     <img src={element.avatar_url} alt={element.full_name} className='sllider-avatar'/>
@@ -45,7 +48,7 @@ const ImgSlider = ({ feedbackFixture }: { feedbackFixture: Feedback[] }) => {
                 </div>
             </header>
             <div className='slider-text'>
-              <p>{element.review_text}</p>
+              <p>{truncateText(element.review_text, 100)}</p>
             </div>
           
         </SwiperSlide>

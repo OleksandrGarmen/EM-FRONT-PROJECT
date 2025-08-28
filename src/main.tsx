@@ -5,6 +5,7 @@ import App from './App'
 import AboutUs from './pages/Bookstore/AboutUs/AboutUs'
 import Contacts from './pages/Bookstore/Contacts/index'
 import BooksPage from './pages/Bookstore/BooksPage/BooksPage'
+import Comments from './pages/Bookstore/Comments/CommentsPage'
 import { saveToLocalStorage } from './localstorage/localStorageHelper'
 import authors from '../src/fixture/authors.json'
 import categories from '../src/fixture/categories.json'
@@ -12,11 +13,13 @@ import books from '../src/fixture/books.json'
 import LoginPage from './pages/Authentication/LoginPage/LoginPage'
 import RegisterPage from './pages/Authentication/RegisterPage/RegisterPage'
 import NotFoundPage from './pages/Bookstore/NotFound/index'
+import feedbackFixtre from './fixture/feedback.json'
 
 localStorage.clear()
 saveToLocalStorage("categories", categories)
 saveToLocalStorage("authors", authors)
 saveToLocalStorage("books", books)
+saveToLocalStorage("review", feedbackFixtre)
 
 createRoot(document.getElementById('root')!).render(
   <BrowserRouter>
@@ -28,7 +31,7 @@ createRoot(document.getElementById('root')!).render(
       <Route path='/login' element={<LoginPage/>}/>
       <Route path='/register' element={<RegisterPage/>}/>
       <Route path='/login' element={<LoginPage/>}/>
-      <Route path='/register' element={<RegisterPage/>}/>
+      <Route path='/review/:id' element={<Comments />}/>
       <Route path='*' element={<NotFoundPage/>}/>
     </Routes>
   </BrowserRouter>,

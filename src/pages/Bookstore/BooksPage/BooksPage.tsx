@@ -11,7 +11,7 @@ const allCategories = getCategories()
 const BooksPage = () => {
     return (
         <LayoutPage>
-            <div className='categories'>
+            <div className='categories-container'>
                 {
                     allCategories && allCategories.length > 0 
                     ? allCategories.map(item => (
@@ -20,7 +20,7 @@ const BooksPage = () => {
                         : "Категорій немає"
                 } 
             </div>
-            <div className='popular-books'>
+            <div className='books-container'>
                 {
                     allBooks && allBooks.length > 0
                         ? allBooks.map(element => {

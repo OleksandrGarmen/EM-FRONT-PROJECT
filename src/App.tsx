@@ -3,10 +3,7 @@ import titleImage from './assets/4eb4199600309ef6a651f94f390ce288e7fbf77f.png';
 import SearchInput from './components/Common/Inputs/Search';
 import SubmitButton from './components/Common/Buttons/SubmitButton';
 import BookComponent from './components/Book';
-import books from './fixture/books.json'
-import authors from './fixture/authors.json'
 import ImgSlider from './components/Common/Slider/ImageSlider'
-import feedbackFixtre from './fixture/feedback.json'
 
 import { getReview, getAuthors, getBooks } from './localstorage/localStorageHelper'
 
@@ -71,7 +68,7 @@ function App() {
       <div className='image-slider-main'>
         <h2 className='image-slider-title'>Buyer’s feedback</h2>
         <div>
-          <ImgSlider feedbackFixture={feedbackFixtre} />
+          <ImgSlider feedbackFixture={allReview} />
         </div>
       </div>
     </LayoutPage>

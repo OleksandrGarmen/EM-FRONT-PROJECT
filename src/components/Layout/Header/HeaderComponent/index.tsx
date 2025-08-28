@@ -5,17 +5,6 @@ import HeaderLogo from '../HeaderLogo'
 import HeaderMenu from '../HeaderMenu'
 import SearchInput from '../../../Common/Inputs/Search';
 import { FilteredHeader } from '../../../../utils/FiltredHeaderMenu';
-
-let data = [
-        {
-            name: "Join In",
-            link: "/login"
-        },
-        {
-            name: "Join Us",
-            link: "/register"
-        }
-    ]
     
 const Header = () => {
     const isAuthenticated = !!localStorage.getItem('isAuthenticated')
