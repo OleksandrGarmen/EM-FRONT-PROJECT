@@ -1,10 +1,12 @@
 import './style.css'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css'
-import { Pagination } from 'swiper/modules';
+import { Pagination, Navigation } from 'swiper/modules';
 import { Star } from "lucide-react";
 import { useNavigate } from "react-router"
 import { Review } from '../../../types/Feedback';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 
 const ImgSlider = ({ feedbackFixture }: { feedbackFixture: Review[] }) => {
     const navigate = useNavigate()
@@ -30,10 +32,12 @@ const ImgSlider = ({ feedbackFixture }: { feedbackFixture: Review[] }) => {
         <Swiper
         slidesPerView={3}
         spaceBetween={30}
+        loop={true}
         pagination={{
             clickable: true,
         }}
-        modules={[Pagination]}
+        navigation={true}
+        modules={[Pagination, Navigation]}
         className="my-swiper"
         >
       {feedbackFixture.map((element, index) => (
