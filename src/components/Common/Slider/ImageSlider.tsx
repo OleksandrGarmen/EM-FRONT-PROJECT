@@ -29,18 +29,32 @@ const ImgSlider = ({ feedbackFixture }: { feedbackFixture: Review[] }) => {
     }
 
     return (
-        <Swiper
+      <Swiper
         slidesPerView={3}
         spaceBetween={30}
         loop={true}
         pagination={{
-            clickable: true,
+          clickable: true,
         }}
         navigation={true}
         modules={[Pagination, Navigation]}
         className="my-swiper"
-        >
-      {feedbackFixture.map((element, index) => (
+        breakpoints={{
+          0: {
+            slidesPerView: 1,
+          },
+          768: {
+            slidesPerView: 2,
+          },
+          1200: {
+            slidesPerView: 2,
+          },
+          1400: {
+            slidesPerView: 3,
+          },
+        }}
+      >
+      {feedbackFixture.map((element) => (
         <SwiperSlide key={element.id} className="swiper-slide" onClick={() => redirect(element.id)}>
             <header className='sllider-header'>
                 <div className='sllider-avatar-container'>
