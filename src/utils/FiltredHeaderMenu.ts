@@ -1,4 +1,4 @@
-import { HeaderFixture } from '../../src/fixture/HeaderFixture.ts'
+import { HeaderFixture } from '../../src/fixture/HeaderFixture'
 import type { HeaderFixtureType } from '../../src/types/HeaderType.ts'
 
 

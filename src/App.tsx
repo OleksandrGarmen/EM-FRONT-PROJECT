@@ -2,16 +2,15 @@ import LayoutPage from './layout/layoutPage';
 import titleImage from './assets/4eb4199600309ef6a651f94f390ce288e7fbf77f.png';
 import SearchInput from './components/Common/Inputs/Search';
 import SubmitButton from './components/Common/Buttons/SubmitButton';
-import Book from './components/Book';
-import books from './fixture/books.json'
-import type { BookType } from './types/BookType';
-import authors from './fixture/authors.json'
-import type { AuthorType } from './types/AuthorType';
-import Carousel from './components/Common/Carousel/index'
+import BookComponent from './components/Book';
+import ImgSlider from './components/Common/Slider/ImageSlider'
+
+import { getReview, getAuthors, getBooks } from './localstorage/localStorageHelper'
 
 import './App.css'
-let bookData:BookType[] = books
-let allAuthors:AuthorType[] = authors
+let bookData = getBooks()
+let allAuthors = getAuthors()
+let allReview = getReview()
 
 function App() {
   return (
@@ -48,13 +47,13 @@ function App() {
         </h2>
         <div className='popular-books'>
           { bookData.slice(0, 8).map(element => {
-              const author = allAuthors.find(a => a.id === element.authorId);
+              const author = allAuthors.find(a => a.id === element.authorId)
               return (
-                  <Book key={element.id} {...element}>
+                  <BookComponent key={element.id} {...element}>
                       <div className="author">
                           {author ? author.name : "Невідомо"}
                       </div>
-                  </Book>
+                  </BookComponent>
               )
           })}
         </div>
@@ -67,7 +66,10 @@ function App() {
           </div>
       </div>
       <div className='image-slider-main'>
-        <Carousel />
+        <h2 className='image-slider-title'>Buyer’s feedback</h2>
+        <div>
+          <ImgSlider feedbackFixture={allReview} />
+        </div>
       </div>
     </LayoutPage>
   )

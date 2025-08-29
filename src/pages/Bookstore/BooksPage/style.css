@@ -1,15 +1,61 @@
-.categories {
+.categories-container {
     display: grid;
-    grid-template-columns: repeat(7, 200px);
-    margin: 10px;
     text-align: center;
-    padding-left: 120px;
-    font-size: larger;
-
 }
-.books {
+
+.books-container {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
     gap: 20px;
     text-align: center;
+}
+
+@media screen and (min-width: 1500px) {
+    .books-container {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    .categories-container {
+        grid-template-columns: repeat(7, 150px);
+    }
+
+}
+
+@media screen and (max-width: 1500px) {
+    .books-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .categories-container {
+        grid-template-columns: repeat(4, 150px);
+    }
+
+}
+
+@media screen and (max-width: 1024px) {
+    .books-container {
+        grid-template-columns: repeat(3, 0.5fr);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .books-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+
+    .categories-container {
+        grid-template-columns: repeat(3, 150px);
+    }
+
+}
+
+@media screen and (max-width: 480px) {
+    .books-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .categories-container {
+        grid-template-columns: repeat(1, 150px);
+    }
 }

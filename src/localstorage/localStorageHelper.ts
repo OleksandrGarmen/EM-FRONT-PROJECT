@@ -1,6 +1,7 @@
-import type { AuthorType } from "../types/AuthorType";
-import type { BookType } from "../types/BookType";
-import type { CategoryType } from "../types/CategoryType";
+import type { Author } from "../types/AuthorType";
+import type { Book } from "../types/BookType";
+import type { Category } from "../types/CategoryType";
+import type { Review } from "../types/Feedback";
 
 export function saveToLocalStorage(key: string, value: any): void {
   try {
@@ -9,8 +10,7 @@ export function saveToLocalStorage(key: string, value: any): void {
     console.error("Error saving to localStorage", error);
   }
 }
-function getFromLocalStorage<T>(key: string):T | null 
-{
+function getFromLocalStorage<T>(key: string, defaultValue: T): T {
   try {
     const value = localStorage.getItem(key);
     if (value) {
@@ -19,7 +19,7 @@ function getFromLocalStorage<T>(key: string):T | null
   } catch (error) {
     console.error("Error getting from localStorage", error);
   }
-  return null;
+  return defaultValue;
 }
 
 export function removeFromLocalStorage(key: string): void {
@@ -29,17 +29,19 @@ export function removeFromLocalStorage(key: string): void {
     console.error("Error removing from localStorage", error);
   }
 }
-export function getCategories(): CategoryType[] | null
-{
-  return getFromLocalStorage<CategoryType[]>("categories") 
+
+export function getCategories(): Category[] {
+  return getFromLocalStorage<Category[]>("categories", []);
 }
 
-export function getBooks(): BookType[] | null
-{
-  return getFromLocalStorage<BookType[]>("books") 
+export function getBooks(): Book[] {
+  return getFromLocalStorage<Book[]>("books", []) 
 }
 
-export function getAuthors(): AuthorType[] | null
-{
-  return getFromLocalStorage<AuthorType[]>("authors") 
+export function getAuthors(): Author[] {
+  return getFromLocalStorage<Author[]>("authors", []) 
+}
+
+export function getReview(): Review[]{
+  return getFromLocalStorage<Review[]>("review", [])
 }

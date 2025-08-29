@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "rating": 5,
+    "avatar_url": "https://randomuser.me/api/portraits/men/32.jpg",
+    "full_name": "James R.",
+    "review_text": "I'm absolutely thrilled with my purchase! The book arrived in perfect condition and the shipping was incredibly fast. I'll definitely be buying from this store again. Highly recommend!"
+  },
+  {
+    "id": 2,
+    "rating": 4,
+    "avatar_url": "https://randomuser.me/api/portraits/women/45.jpg",
+    "full_name": "Sarah J.",
+    "review_text": "Great selection of books and fair prices. My order took a little longer to arrive than expected, but the customer service was very helpful when I reached out. Overall, a positive experience."
+  },
+  {
+    "id": 3,
+    "rating": 1,
+    "avatar_url": "https://randomuser.me/api/portraits/men/8.jpg",
+    "full_name": "Mark C.",
+    "review_text": "I can't believe I wasted my money here. The book was damaged and the cover was torn. I tried to contact them but nobody responded. This is ridiculous. DON'T BUY HERE."
+  },
+  {
+    "id": 4,
+    "rating": 5,
+    "avatar_url": "https://randomuser.me/api/portraits/women/61.jpg",
+    "full_name": "Emily B.",
+    "review_text": "LOL, I ordered a book about time travel and the delivery guy was 10 minutes late. I guess the irony isn't lost on me! Still, great book, I'm loving it. The store is fantastic!"
+  },
+  {
+    "id": 5,
+    "rating": 3,
+    "avatar_url": "https://randomuser.me/api/portraits/men/77.jpg",
+    "full_name": "David M.",
+    "review_text": "The book was okay. Nothing special. It's a book. It came. End of story."
+  },
+  {
+    "id": 6,
+    "rating": 5,
+    "avatar_url": "https://randomuser.me/api/portraits/women/12.jpg",
+    "full_name": "Maria G.",
+    "review_text": "I found a rare edition I've been searching for everywhere! Thank you so much for having it in stock. You guys are the best book store out there. My new go-to place for all things literary!"
+  },
+  {
+    "id": 7,
+    "rating": 2,
+    "avatar_url": "https://randomuser.me/api/portraits/men/90.jpg",
+    "full_name": "Alex K.",
+    "review_text": "Why do you even sell this book? The plot is terrible, the characters are bland, and the ending makes no sense. I regret this purchase. This is a review for the book, not the store, but I'm leaving it here anyway. You should stop selling bad books."
+  },
+  {
+    "id": 8,
+    "rating": 4,
+    "avatar_url": "https://randomuser.me/api/portraits/women/24.jpg",
+    "full_name": "Jessica L.",
+    "review_text": "Pretty good store. Good selection, fast shipping, and the book was well-packaged. I'd shop here again. No complaints."
+  },
+  {
+    "id": 9,
+    "rating": 5,
+    "avatar_url": "https://randomuser.me/api/portraits/men/53.jpg",
+    "full_name": "Tom P.",
+    "review_text": "I am so happy with this book! The quality is amazing, the cover art is even better in person, and I can't wait to dive in. It's exactly what I wanted. Thank you for a fantastic service!"
+  },
+  {
+    "id": 10,
+    "rating": 1,
+    "avatar_url": "https://randomuser.me/api/portraits/women/78.jpg",
+    "full_name": "Anna S.",
+    "review_text": "The worst. Just the absolute worst. Don't even bother."
+  }
+]
