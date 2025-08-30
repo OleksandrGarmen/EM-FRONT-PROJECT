@@ -16,5 +16,6 @@ export type Book = {
   status: ENUM
   createdAt: string;
   updatedAt: string
-
 };
+
+export type FullBookData = Book & { authorName?: string, categoryName?: string}

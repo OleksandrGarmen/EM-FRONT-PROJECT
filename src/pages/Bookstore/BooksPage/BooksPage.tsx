@@ -2,13 +2,11 @@ import './style.css'
 import LayoutPage from '../../../layout/layoutPage'
 import BookComponent from '../../../components/Book'
 import CategoryComponent from '../../../components/Category'
-import { getAuthors, getBooks, getCategories } from '../../../localstorage/localStorageHelper'
-
-const allBooks = getBooks()
-const allAuthors  = getAuthors()
+import { getAuthors, getBooks, getCategories, getFullBooksData } from '../../../localstorage/localStorageHelper'
 const allCategories = getCategories()
 
 const BooksPage = () => {
+    const books = getFullBooksData()
     return (
         <LayoutPage>
             <div className='categories-container'>
@@ -22,18 +20,14 @@ const BooksPage = () => {
             </div>
             <div className='books-container'>
                 {
-                    allBooks && allBooks.length > 0
-                        ? allBooks.map(element => {
-                            const author = allAuthors.find(a => a.id === element.authorId);
+                     books.map(element => {
+                           
                             return (
                                 <BookComponent key={element.id} {...element}>
-                                    <div className="author">
-                                        {author ? author.name : "Невідомо"}
-                                    </div>
+                                    <button></button>
                                 </BookComponent>
                             )
                         })
-                        : "Книжок немає"
                 }
             </div>
         </LayoutPage>

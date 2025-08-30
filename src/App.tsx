@@ -5,14 +5,14 @@ import SubmitButton from './components/Common/Buttons/SubmitButton';
 import BookComponent from './components/Book';
 import ImgSlider from './components/Common/Slider/ImageSlider'
 
-import { getReview, getAuthors, getBooks } from './localstorage/localStorageHelper'
+import { getReview, getAuthors, getBooks, getFullBooksData } from './localstorage/localStorageHelper'
 
 import './App.css'
-let bookData = getBooks()
-let allAuthors = getAuthors()
-let allReview = getReview()
 
 function App() {
+  let books = getFullBooksData()
+  let allReview = getReview()
+
   return (
     <LayoutPage>
       <div className='title-container'>
@@ -46,12 +46,11 @@ function App() {
           Popular Books
         </h2>
         <div className='popular-books'>
-          { bookData.slice(0, 8).map(element => {
-              const author = allAuthors.find(a => a.id === element.authorId)
+          { books.slice(0, 8).map(element => {
               return (
                   <BookComponent key={element.id} {...element}>
-                      <div className="author">
-                          {author ? author.name : "Невідомо"}
+                      <div className="children-price">
+                          <p>{element.price}</p>
                       </div>
                   </BookComponent>
               )

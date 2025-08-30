@@ -1,5 +1,5 @@
 import type { Author } from "../types/AuthorType";
-import type { Book } from "../types/BookType";
+import type { Book, FullBookData } from "../types/BookType";
 import type { Category } from "../types/CategoryType";
 import type { Review } from "../types/Feedback";
 
@@ -44,4 +44,35 @@ export function getAuthors(): Author[] {
 
 export function getReview(): Review[]{
   return getFromLocalStorage<Review[]>("review", [])
+}
+
+function getTextById(array:Author[] | Category[], id:number):string {
+  const obj = array.find(value => value.id === id);
+
+  return obj ? obj.name : "";
+}
+
+export function getFullBooksData(): FullBookData[] 
+{
+   const books = getBooks();
+
+   if(!books)
+    return [];
+
+   const authors = getAuthors();
+   let author:string = "";
+   let lastId = 0;
+
+   return books.map((book) => {
+    const bookData:FullBookData = book; 
+
+    if(book.authorId != lastId) {
+      author = getTextById(authors, book.authorId);
+      lastId = book.authorId;
+    }
+
+    bookData.authorName = author;
+    return bookData;
+   })
+
 }
