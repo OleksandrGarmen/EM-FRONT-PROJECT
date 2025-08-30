@@ -7,8 +7,8 @@ import SearchInput from '../../../Common/Inputs/Search';
 import { FilteredHeader } from '../../../../utils/FiltredHeaderMenu';
 import { FooterFixture } from '../../../../fixture/FooterFixture';
 import type { FooterData } from '../../../../types/FooterType';
-import { Twitter, Facebook, Linkedin, Youtube } from "lucide-react";
-
+import { X, Facebook, Linkedin, Youtube } from "lucide-react";
+import SubscribeForm from '../../../Common/Inputs/SubscribeForm';
 
 const Footer = () => {
     const isAuthenticated = !!localStorage.getItem('isAuthenticated')
@@ -21,38 +21,37 @@ const Footer = () => {
     }
 
     return (
- <footer className="footer">
-          <div className="subscribe-box">
-            <p className="subscribe-title">Subscribe our new offers !</p>
-            <div className="subscribe-form">
-              <input type="email" placeholder="Input your email" />
-              <button>Subscribe</button>
-            </div>
-          </div>
+      <footer className="footer">
+        <div className="subscribe-box">
+          <p className="subscribe-title">Subscribe our new offers !</p>
+          <SubscribeForm />
+        </div>
 
-          <div className="footer-main">
-            <FooterLogo/>
-            <FooterMenu/>
-          </div>
+        <div className="footer-main">
+          <FooterLogo/>
+          <FooterMenu/>
+        </div>
 
-          <div className="footer-bottom">
-            <p>© 2022 Brand, Inc. • <a href="/privacy">Privacy</a> • <a href="/terms">Terms</a> • <a href="/sitemap">Sitemap</a></p>
-            <div className="social-icons">
-          <a href="#" aria-label="Twitter">
-          <Twitter size={24} />
-      </a>
-      <a href="#" aria-label="Facebook">
-        <Facebook size={24} />
-      </a>
-      <a href="#" aria-label="LinkedIn">
-        <Linkedin size={24} />
-      </a>
-      <a href="#" aria-label="YouTube">
-        <Youtube size={24} />
-      </a>
-            </div>
+        <div className="footer-bottom">
+          <div>
+            <p>© 2022 Brand, Inc. • <a href="/privacy" className='link'>Privacy</a> • <a href="/terms" className='link'>Terms</a> • <a href="/sitemap" className='link'>Sitemap</a></p>
           </div>
-       </footer>
+          <div className="social-icons">
+            <a href="#" aria-label="Twitter" className='link'>
+                <X size={24} />
+            </a>
+            <a href="#" aria-label="Facebook" className='link'>
+              <Facebook size={24} />
+            </a>
+            <a href="#" aria-label="LinkedIn" className='link'>
+              <Linkedin size={24} />
+            </a>
+            <a href="#" aria-label="YouTube" className='link'>
+              <Youtube size={24} />
+            </a>
+          </div>
+        </div>
+      </footer>
   );
 };
 export default Footer 
