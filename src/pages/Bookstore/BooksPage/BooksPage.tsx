@@ -3,9 +3,15 @@ import LayoutPage from '../../../layout/layoutPage'
 import BookComponent from '../../../components/Book'
 import CategoryComponent from '../../../components/Category'
 import { getAuthors, getBooks, getCategories, getFullBooksData } from '../../../localstorage/localStorageHelper'
-const allCategories = getCategories()
+import { useNavigate } from "react-router"
 
 const BooksPage = () => {
+
+    const allCategories = getCategories()
+    const navigate = useNavigate()
+    const redirect = (id:number) => {
+        navigate(`/book/${id}`)
+    }
     const books = getFullBooksData()
     return (
         <LayoutPage>
@@ -24,7 +30,7 @@ const BooksPage = () => {
                            
                             return (
                                 <BookComponent key={element.id} {...element}>
-                                    <button></button>
+                                    <button onClick={() => redirect(element.id)}>Add to Cars</button>
                                 </BookComponent>
                             )
                         })
