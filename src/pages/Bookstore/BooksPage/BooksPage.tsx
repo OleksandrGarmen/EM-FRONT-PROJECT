@@ -1,39 +1,24 @@
 import './style.css'
 import LayoutPage from '../../../layout/layoutPage'
-import BookComponent from '../../../components/Book'
-import CategoryComponent from '../../../components/Category'
-import { getAuthors, getBooks, getCategories, getFullBooksData } from '../../../localstorage/localStorageHelper'
-import { useNavigate } from "react-router"
+import BookComponent from '../../../components/Common/Book'
+import { getFullBooksData } from '../../../localstorage/localStorageHelper'
+import SubmitButton from '../../../components/Common/Buttons/SubmitButton'
+import CategoryFilter from '../../../components/Common/Categories/CategoryFilter'
 
 const BooksPage = () => {
-
-    const allCategories = getCategories()
-    const navigate = useNavigate()
-    const redirect = (id:number) => {
-        navigate(`/book/${id}`)
-    }
     const books = getFullBooksData()
     return (
         <LayoutPage>
-            <div className='categories-container'>
-                {
-                    allCategories && allCategories.length > 0 
-                    ? allCategories.map(item => (
-                            <CategoryComponent key={item.id} {...item} />
-                        ))
-                        : "Категорій немає"
-                } 
-            </div>
+            <CategoryFilter />
             <div className='books-container'>
                 {
-                     books.map(element => {
-                           
-                            return (
-                                <BookComponent key={element.id} {...element}>
-                                    <button onClick={() => redirect(element.id)}>Add to Cars</button>
-                                </BookComponent>
-                            )
-                        })
+                    books.map(element => {
+                        return (
+                            <BookComponent key={element.id} {...element}>
+                                <SubmitButton text='Add to Cart' />
+                            </BookComponent>
+                        )
+                    })
                 }
             </div>
         </LayoutPage>

@@ -1,0 +1,24 @@
+.signup-banner {
+    width: 100%;
+    min-height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #000;
+    gap: 21px;
+}
+
+.signup-button-container {
+    width: 480px;
+}
+
+.signup-text {
+    font-family: Inter;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 48px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+    color: var(--background-color-main);
+}

@@ -1,4 +1,8 @@
-.footer {
+.footer{
+  text-align: center;
+}
+
+.footer-container{
   background: #f7b977;
   padding: 2rem;
   text-align: center;

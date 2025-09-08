@@ -1,12 +1,12 @@
-.swiper-button-next,
-.swiper-button-prev {
-  color: #ff6600;
-  transition: 0.3s;
+.my-swiper .swiper-button-next,
+.my-swiper .swiper-button-prev {
+    color: #ff6600 !important;
+    transition: 0.3s;
 }
 
-.swiper-button-next:hover,
-.swiper-button-prev:hover {
-  color: #cc5200;
+.my-swiper .swiper-button-next:hover,
+.my-swiper .swiper-button-prev:hover {
+    color: #cc5200 !important;
 }
 
 

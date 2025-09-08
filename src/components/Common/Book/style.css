@@ -5,12 +5,12 @@
     padding: 15px;
     max-width: 350px;
     transition: transform 0.2s ease-in-out;
+    cursor: pointer;
 }
 
 .book-container:hover {
     transform: scale(1.05);
 }
-
 
 .about-book {
     text-align: left;
@@ -23,9 +23,7 @@
 }
 
 .book-children {
-    color: #747474;
-}
-
-.book-price {
-    color: #DB5408;
+    margin-top: 5px;
+    display: flex;
+    justify-content: flex-start;
 }

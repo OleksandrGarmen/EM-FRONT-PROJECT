@@ -1,5 +1,4 @@
 import './style.css'
-import LayoutPage from '../../../layout/layoutPage'
 
 const NotFoundPage = () => {
     return (

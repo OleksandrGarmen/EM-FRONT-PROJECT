@@ -49,8 +49,8 @@ const Sitebar = () => {
                 <SitebarButton items={FilteredHeader()}/>
                 <div className="logout-wrapper">
                     {!isAuthenticated && <>
-                        <SubmitButton text='Sing in' onClick={SingIn}/>
-                        <SubmitButton text='Join us' onClick={JoinUs}/>
+                        <SubmitButton text='Sing in'/>
+                        <SubmitButton text='Join us'/>
                     </>}
                     {isAuthenticated && <LogoutButton />}
                 </div>

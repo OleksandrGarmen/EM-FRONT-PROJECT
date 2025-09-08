@@ -33,7 +33,7 @@ createRoot(document.getElementById('root')!).render(
       <Route path='/register' element={<RegisterPage/>}/>
       <Route path='/login' element={<LoginPage/>}/>
       <Route path='/review/:id' element={<Comments />}/>
-      <Route path='/book/:id' element={<BookPage />}/>
+      <Route path='/books/:id' element={<BookPage />}/>
       <Route path='*' element={<NotFoundPage/>}/>
     </Routes>
   </BrowserRouter>,

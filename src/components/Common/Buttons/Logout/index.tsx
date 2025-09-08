@@ -7,7 +7,7 @@ const LogoutButton = () => {
     }
 
     return (
-        <SubmitButton text='Logout' onClick={logout} backgroudColor='#e98d58' />
+        <SubmitButton text='Logout' backgroudColor='#e98d58' />
     )
 }
 

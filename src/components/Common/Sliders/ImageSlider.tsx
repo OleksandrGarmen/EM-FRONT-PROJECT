@@ -1,4 +1,3 @@
-import './style.css'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css'
 import { Navigation } from 'swiper/modules';
@@ -7,6 +6,7 @@ import { useNavigate } from "react-router"
 import { Review } from '../../../types/Feedback';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import './style.css'
 
 const ImgSlider = ({ feedbackFixture }: { feedbackFixture: Review[] }) => {
     const navigate = useNavigate()

@@ -77,6 +77,16 @@
     text-align: center;
 }
 
+.book-price {
+    color: #DB5408;
+    font-family: Inter;
+    font-weight: 300;
+    font-style: Light;
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: 0%;
+}
+
 .alert-title {
     font-family: Inter, sans-serif;
     font-weight: 800;

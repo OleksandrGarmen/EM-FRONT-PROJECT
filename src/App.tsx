@@ -2,10 +2,10 @@ import LayoutPage from './layout/layoutPage';
 import titleImage from './assets/4eb4199600309ef6a651f94f390ce288e7fbf77f.png';
 import SearchInput from './components/Common/Inputs/Search';
 import SubmitButton from './components/Common/Buttons/SubmitButton';
-import BookComponent from './components/Book';
-import ImgSlider from './components/Common/Slider/ImageSlider'
+import BookComponent from './components/Common/Book';
+import ImgSlider from './components/Common/Sliders/ImageSlider'
 
-import { getReview, getAuthors, getBooks, getFullBooksData } from './localstorage/localStorageHelper'
+import { getReview, getFullBooksData } from './localstorage/localStorageHelper'
 
 import './App.css'
 
@@ -50,7 +50,7 @@ function App() {
               return (
                   <BookComponent key={element.id} {...element}>
                       <div className="children-price">
-                          <p>{element.price}</p>
+                          <p className='book-price'>{element.price}</p>
                       </div>
                   </BookComponent>
               )

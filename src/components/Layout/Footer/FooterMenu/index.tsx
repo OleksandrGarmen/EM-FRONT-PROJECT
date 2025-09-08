@@ -1,8 +1,4 @@
-import { Link } from "react-router";
 import './style.css'
-import { FooterFixture } from '../../../../fixture/FooterFixture';
-import type { FooterData } from '../../../../types/FooterType';
-
 
 type MenuItem = {
   name: string

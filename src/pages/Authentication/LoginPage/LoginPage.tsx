@@ -1,7 +1,6 @@
 import './style.css'
 import LayoutPage from '../../../layout/layoutPage'
 import login from '../../../fixture/login.json'
-import type { LoginContent } from '../../../types/LoginType'
 
 const LoginPage = () => {
     return (

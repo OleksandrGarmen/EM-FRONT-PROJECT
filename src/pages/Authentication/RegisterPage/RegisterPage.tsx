@@ -1,6 +1,5 @@
 import './style.css'
 import LayoutPage from '../../../layout/layoutPage'
-import type { Register } from '../../../types/Register'
 import register from '../../../fixture/register.json'
 
 const RegisterPage = () => {
