@@ -12,7 +12,12 @@ const BookComponent = (props:BookProps) => {
   return (
     <div className="book-container" onClick={() => navigate(`/books/${props.id}`)}>
         <div className="image">
-            <img src={props.image}></img>
+            <img 
+              src={props.image}
+              loading="lazy"
+              decoding="async"
+              alt="book image"
+            />
             <div className="about-book">
               <div>
                 <p className="book-title">{props.title}</p>

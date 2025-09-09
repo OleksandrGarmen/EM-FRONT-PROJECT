@@ -52,7 +52,13 @@ const ImgSlider = ({ feedbackFixture }: { feedbackFixture: Review[] }) => {
         <SwiperSlide key={element.id} className="swiper-slide" onClick={() => redirect(element.id)}>
             <header className='sllider-header'>
                 <div className='sllider-avatar-container'>
-                    <img src={element.avatar_url} alt={element.full_name} className='sllider-avatar'/>
+                    <img 
+                      src={element.avatar_url} 
+                      alt={element.full_name} 
+                      className='sllider-avatar'
+                      loading="lazy"
+                      decoding="async"
+                    />
                 </div>
                 <div>
                     <div className='slider-user'>{element.full_name}</div>
