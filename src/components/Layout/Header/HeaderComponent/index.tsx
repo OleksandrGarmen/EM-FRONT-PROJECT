@@ -7,7 +7,7 @@ import SearchInput from '../../../Common/Inputs/Search';
 import { FilteredHeader } from '../../../../utils/FiltredHeaderMenu';
     
 const Header = () => {
-    const isAuthenticated = !!localStorage.getItem('isAuthenticated')
+    const isAuthenticated = !!localStorage.getItem('token')
 
     const SingIn = () => {
         return <Navigate to="/login" replace />
