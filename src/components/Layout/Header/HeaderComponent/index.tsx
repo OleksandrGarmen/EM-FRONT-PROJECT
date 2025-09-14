@@ -5,7 +5,7 @@ import HeaderLogo from '../HeaderLogo'
 import HeaderMenu from '../HeaderMenu'
 import SearchInput from '../../../Common/Inputs/Search';
 import { FilteredHeader } from '../../../../utils/FiltredHeaderMenu';
-import Modal from '../../../Modal/index'
+import Modal from '../../../Modal/'
     
 const Header = () => {
     const isAuthenticated = !!localStorage.getItem('isAuthenticated')
@@ -29,7 +29,6 @@ const Header = () => {
                                 <SubmitButton text='Sing in' link='/register'/>
                                 <SubmitButton text='Join us' link='/login'/>
                             </div>
-                             <Modal/>
                         </div>
                     </>
                 )

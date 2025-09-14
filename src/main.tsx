@@ -15,9 +15,8 @@ import RegisterPage from './pages/Authentication/RegisterPage/RegisterPage'
 import NotFoundPage from './pages/Bookstore/NotFound/index'
 import feedbackFixtre from './fixture/feedback.json'
 import BookPage from './pages/Bookstore/BookPage/BookPage'
-import PurchasesPage from './pages/Purchases'
 
-localStorage.clear()
+
 saveToLocalStorage("categories", categories)
 saveToLocalStorage("authors", authors)
 saveToLocalStorage("books", books)
