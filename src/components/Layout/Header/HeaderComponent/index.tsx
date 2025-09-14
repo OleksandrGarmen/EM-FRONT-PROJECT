@@ -8,7 +8,7 @@ import { FilteredHeader } from '../../../../utils/FiltredHeaderMenu';
 import Modal from '../../../Modal/'
     
 const Header = () => {
-    const isAuthenticated = !!localStorage.getItem('isAuthenticated')
+    const isAuthenticated = !!localStorage.getItem('token')
 
     const SingIn = () => {
         return <Navigate to="/login" replace />
