@@ -5,6 +5,7 @@ import HeaderLogo from '../HeaderLogo'
 import HeaderMenu from '../HeaderMenu'
 import SearchInput from '../../../Common/Inputs/Search';
 import { FilteredHeader } from '../../../../utils/FiltredHeaderMenu';
+import Modal from '../../../Modal/index'
     
 const Header = () => {
     const isAuthenticated = !!localStorage.getItem('isAuthenticated')
@@ -28,6 +29,7 @@ const Header = () => {
                                 <SubmitButton text='Sing in' link='/register'/>
                                 <SubmitButton text='Join us' link='/login'/>
                             </div>
+                             <Modal/>
                         </div>
                     </>
                 )
@@ -44,6 +46,9 @@ const Header = () => {
                             <li className='header-links'>Account</li>
                             <li className='header-links header-cart-icon'>
                                 {/* <FaShoppingCart /> */}
+                            </li>
+                            <li>
+                                <Modal/>
                             </li>
                         </ul>
                     </div>
