@@ -6,7 +6,8 @@ import HeaderMenu from '../HeaderMenu'
 import SearchInput from '../../../Common/Inputs/Search';
 import { FilteredHeader } from '../../../../utils/FiltredHeaderMenu';
 import BasicPopover from '../../../Common/Popover/Popover';
-
+import Modal from '../../../Modal/'
+    
 const Header = () => {
     const isAuthenticated = !!localStorage.getItem('token')
 
@@ -48,6 +49,9 @@ const Header = () => {
                             </BasicPopover>
                             <li className='header-links header-cart-icon'>
                                 {/* <FaShoppingCart /> */}
+                            </li>
+                            <li>
+                                <Modal/>
                             </li>
                         </ul>
                     </div>
