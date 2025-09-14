@@ -5,7 +5,8 @@ import HeaderLogo from '../HeaderLogo'
 import HeaderMenu from '../HeaderMenu'
 import SearchInput from '../../../Common/Inputs/Search';
 import { FilteredHeader } from '../../../../utils/FiltredHeaderMenu';
-    
+import BasicPopover from '../../../Common/Popover/Popover';
+
 const Header = () => {
     const isAuthenticated = !!localStorage.getItem('token')
 
@@ -41,7 +42,10 @@ const Header = () => {
                             <li className='header-links'>
                                 <SearchInput placeholder='Search'/>
                             </li>
-                            <li className='header-links'>Account</li>
+                            
+                            <BasicPopover>
+                                <li className='header-links'>Account</li>
+                            </BasicPopover>
                             <li className='header-links header-cart-icon'>
                                 {/* <FaShoppingCart /> */}
                             </li>
