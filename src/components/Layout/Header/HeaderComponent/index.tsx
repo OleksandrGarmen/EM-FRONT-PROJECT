@@ -40,17 +40,10 @@ const Header = () => {
                         <HeaderLogo />
                         <HeaderMenu items={FilteredHeader()}/>
                         <ul className='header-menu'>
-                            <li className='header-links'>
-                                <SearchInput placeholder='Search'/>
-                            </li>
-                            
                             <BasicPopover>
-                                <li className='header-links'>Account</li>
+                                <p className='header-links'>Account</p>
                             </BasicPopover>
                             <li className='header-links header-cart-icon'>
-                                {/* <FaShoppingCart /> */}
-                            </li>
-                            <li>
                                 <Modal/>
                             </li>
                         </ul>

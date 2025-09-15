@@ -31,7 +31,7 @@ const Contacts = () => {
                     </div>
                     <div className="map-section">
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2630.7774178370577!2d32.07205291596175!3d49.444437979348454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d14e3e67c230f5%3A0x831d3b3bfa0b4a65!2z0KHRgtGA0L7QtdC90LjRhtC60LDRjyDQvtCx0LvQsNGB0YLRjCwgNDQsINCh0L7QvdC-0YDQvtCz0LIsINCe0LrQu9Cw0YHRgtGMLCAyMDgwMA!5e0!3m2!1suk!2sua!4v1692714776982!5m2!1suk!2sua"
+                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2056.0742953779394!2d32.0571158!3d49.4316609!3m2!1i1024!2i768!4f17!3m3!1m2!1s0x0%3A0x0!2zNDnCsDI1JzIyLjciTiAzMsKwMDMnMzQuNyJF!5e0!3m2!1suk!2sua!4v1692714776982!5m2!1suk!2sua"
                         ></iframe>
                     </div>
                 </div>

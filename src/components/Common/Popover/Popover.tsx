@@ -29,12 +29,12 @@ function BasicPopover ({children} : {children: React.ReactNode}) {
         anchorEl={anchorEl}
         onClose={handleClose}
         anchorOrigin={{
-            vertical: 'bottom',
-            horizontal: 'right',
+          vertical: 'bottom',
+          horizontal: 'center',
         }}
         transformOrigin={{
-            vertical: 'bottom',
-            horizontal: 'left',
+          vertical: 'top',
+          horizontal: 'center',
         }}
       >
         <Typography sx={{ p: 2 }} className='popover-content'>

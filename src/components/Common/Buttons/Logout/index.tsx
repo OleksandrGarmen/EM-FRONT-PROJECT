@@ -3,11 +3,11 @@ import SubmitButton from '../SubmitButton'
 
 const LogoutButton = () => {
     const logout = () => {
-        // localStorage.removeItem()
+        localStorage.removeItem('token')
     }
 
     return (
-        <SubmitButton text='Logout' backgroudColor='#e98d58' />
+        <SubmitButton text='Logout' backgroudColor='#e98d58' onclick={logout}/>
     )
 }
 
