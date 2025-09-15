@@ -1,6 +1,6 @@
 import './style.css'
 import { useState } from 'react'
-import {ShoppingCart} from 'lucide-react'
+import { ShoppingBasket } from 'lucide-react';
 
 const ModalComponent = () => {
   const [modal, setModal] = useState(false);
@@ -17,9 +17,9 @@ const ModalComponent = () => {
   }
     return (
          <>
-            <button onClick={toggleModal} className="btn-modal">
-                <ShoppingCart />
-            </button>
+            <div onClick={toggleModal} className="btn-modal">
+                <ShoppingBasket size={40} strokeWidth={1} />
+            </div>
 
             {modal && (
                 <div className="modal">
