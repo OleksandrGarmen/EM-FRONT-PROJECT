@@ -9,7 +9,7 @@ import SubmitButton from '../../../Common/Buttons/SubmitButton';
 
 const Sitebar = () => {
     let headerData:HeaderFixtureType[] = HeaderFixture
-    const isAuthenticated = !!localStorage.getItem('isAuthenticated')
+    const isAuthenticated = !!localStorage.getItem('token')
 
     const SingIn = () => {
 
