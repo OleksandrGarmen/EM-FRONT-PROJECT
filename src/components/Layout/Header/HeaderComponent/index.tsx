@@ -1,22 +1,13 @@
 import './style.css'
 import SubmitButton from '../../../Common/Buttons/SubmitButton'
-import { Navigate } from "react-router";
 import HeaderLogo from '../HeaderLogo'
 import HeaderMenu from '../HeaderMenu'
-import SearchInput from '../../../Common/Inputs/Search';
 import { FilteredHeader } from '../../../../utils/FiltredHeaderMenu';
 import BasicPopover from '../../../Common/Popover/Popover';
 import Modal from '../../../Modal/'
     
 const Header = () => {
     const isAuthenticated = !!localStorage.getItem('token')
-
-    const SingIn = () => {
-        return <Navigate to="/login" replace />
-    }
-    const JoinUs = () => {
-        return <Navigate to="/register" replace />
-    }
 
     return (
         <header className='header-main-container'>
