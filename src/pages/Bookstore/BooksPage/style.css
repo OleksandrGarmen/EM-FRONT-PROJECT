@@ -4,6 +4,21 @@
     text-align: center;
 }
 
+.clear-filters-btn {
+    width: 180px;
+    height: auto;
+    padding: 10px;
+    border: none;
+    background: var(--background-color-second);
+    border-radius: 5px;
+    transition: 0.3s ease;
+    font-size: 18px;
+}
+
+.clear-filters-btn:hover {
+    background: var(--background-color-main);
+}
+
 @media screen and (min-width: 1500px) {
     .books-container {
         grid-template-columns: repeat(5, 1fr);

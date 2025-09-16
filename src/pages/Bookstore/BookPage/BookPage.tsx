@@ -5,6 +5,7 @@ import { getBooks, getAuthors } from '../../../localstorage/localStorageHelper'
 import CategoryFilter from '../../../components/Common/Categories/CategoryFilter'
 import SubmitButton from '../../../components/Common/Buttons/SubmitButton'
 import BookComponent from '../../../components/Common/Book'
+import { useCategoryFilter } from '../../../utils/categoryFilter'
 
 import type { Book } from '../../../types/BookType'
 import type { Author } from '../../../types/AuthorType'
@@ -16,9 +17,30 @@ const BookPage = () => {
     const authors: Author[] = getAuthors()
     const author = authors.find(authors => authors.id === book?.authorId)
 
+    const {
+        selectedCategories,
+        filteredItems: filteredBooks,
+        handleCategoryChange,
+        clearAllCategories,
+        hasActiveFilters
+    } = useCategoryFilter(books)
+
+    let createdAt = book?.createdAt ? new Date(book.createdAt) : null
+
     return (
         <LayoutPage>
-            <CategoryFilter />
+            <CategoryFilter 
+                selectedCategories={selectedCategories}
+                onCategoryChange={handleCategoryChange}
+            />
+            {hasActiveFilters && (
+                <button 
+                    className="clear-filters-btn"
+                    onClick={clearAllCategories}
+                >
+                    Clear All Filters
+                </button>
+            )}
             <div className='book-page-container'>
                 <div>
                     <img src={book?.image} alt="Book image" />
@@ -26,10 +48,13 @@ const BookPage = () => {
                 <div className='book-info-container'>
                     <h2 className='book-info-title'>{book?.title}</h2>
                     <ul className='book-info-list'>
-                        <li>{author?.name}</li>
+                        <li>Author: {author?.name}</li>
                         <li>{book?.shortDescription}</li>
-                        <li>{book?.createdAt}</li>
-                        <li>{book?.price}</li>
+                        <li>
+                            Created At:{" "}
+                            {createdAt? createdAt.toLocaleString(): ''}
+                        </li>
+                        <li>Price: {book?.price}$</li>
                         <li><SubmitButton text='Add to Cart' /></li>
                     </ul>
                 </div>
@@ -41,13 +66,18 @@ const BookPage = () => {
             <div className='book-desctipton-container'>
                 <h2 className='book-desctipton-title book-description-text-release'>New Released</h2>
                 <div className='popular-books'>
-                { books.slice(0, 4).map(element => {
+                { filteredBooks.slice(0, 4).map(element => {
                     return (
                         <BookComponent key={element.id} {...element}>
                             <SubmitButton text='Add to Cart' />
                         </BookComponent>
                     )
                 })}
+                {filteredBooks.length === 0 && hasActiveFilters && (
+                    <div className="no-books-message">
+                        No books found for selected categories
+                    </div>
+                )}
                 </div>
             </div>
         </LayoutPage>
