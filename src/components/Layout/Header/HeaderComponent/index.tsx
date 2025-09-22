@@ -4,7 +4,7 @@ import HeaderLogo from '../HeaderLogo'
 import HeaderMenu from '../HeaderMenu'
 import { FilteredHeader } from '../../../../utils/FiltredHeaderMenu';
 import BasicPopover from '../../../Common/Popover/Popover';
-import Modal from '../../../Modal/'
+import Modal from '../../../Common/Modal'
     
 const Header = () => {
     const isAuthenticated = !!localStorage.getItem('token')
