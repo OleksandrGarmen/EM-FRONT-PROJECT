@@ -1,7 +1,7 @@
 import './style.css'
 import LayoutPage from '../../../layout/layoutPage'
 import { useParams } from 'react-router'
-import { getBooks, getAuthors } from '../../../localstorage/localStorageHelper'
+import { getBooks, getAuthors, addBookToCart } from '../../../localstorage/localStorageHelper'
 import CategoryFilter from '../../../components/Common/Categories/CategoryFilter'
 import SubmitButton from '../../../components/Common/Buttons/SubmitButton'
 import BookComponent from '../../../components/Common/Book'
@@ -16,7 +16,6 @@ const BookPage = () => {
     const book = books.find(book => book.id === Number(id) )
     const authors: Author[] = getAuthors()
     const author = authors.find(authors => authors.id === book?.authorId)
-
     const {
         selectedCategories,
         filteredItems: filteredBooks,
@@ -26,6 +25,7 @@ const BookPage = () => {
     } = useCategoryFilter(books)
 
     let createdAt = book?.createdAt ? new Date(book.createdAt) : null
+    const handleBook = addBookToCart
 
     return (
         <LayoutPage>
@@ -69,7 +69,7 @@ const BookPage = () => {
                 { filteredBooks.slice(0, 4).map(element => {
                     return (
                         <BookComponent key={element.id} {...element}>
-                            <SubmitButton text='Add to Cart' />
+                            <SubmitButton text='Add to Cart' onClick={() => handleBook(element.id)}/>
                         </BookComponent>
                     )
                 })}

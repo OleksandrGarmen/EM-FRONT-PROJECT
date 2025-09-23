@@ -5,6 +5,7 @@ import { getFullBooksData } from '../../../localstorage/localStorageHelper'
 import SubmitButton from '../../../components/Common/Buttons/SubmitButton'
 import CategoryFilter from '../../../components/Common/Categories/CategoryFilter'
 import { useCategoryFilter } from '../../../utils/categoryFilter'
+import { addBookToCart } from '../../../localstorage/localStorageHelper'
 
 const BooksPage = () => {
     const books = getFullBooksData()
@@ -15,6 +16,8 @@ const BooksPage = () => {
         clearAllCategories,
         hasActiveFilters
     } = useCategoryFilter(books)
+
+    const handleBook = addBookToCart
 
     return (
         <LayoutPage>
@@ -35,7 +38,7 @@ const BooksPage = () => {
                     filteredBooks.map(element => {
                         return (
                             <BookComponent key={element.id} {...element}>
-                                <SubmitButton text='Add to Cart' />
+                                <SubmitButton text='Add to Cart' onClick={() => handleBook(element.id)}/>
                             </BookComponent>
                         )
                     })

@@ -3,23 +3,38 @@ import LayoutPage from '../../../layout/layoutPage'
 import login from '../../../fixture/login.json'
 import { validateLogin } from '../../../utils/LoginValidation'
 import React from 'react'
-import { tokenGenerator } from '../../../localstorage/localStorageHelper' 
+import { saveToLocalStorage, getFromLocalStorage } from '../../../localstorage/localStorageHelper' 
+import { UserType } from '../../../types/UserType'
 
 const LoginPage = () => {
     const [email, setEmail] = React.useState('')
     const [password, setPassword] = React.useState('')
     const [error, setError] = React.useState<string | null>(null)
 
-    const handleSubmit = (event: React.FormEvent) => {
-        event.preventDefault()
-        let isValid = validateLogin(email, password)
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault()
+        let isValid = validateLogin( email, password, )
         if (!isValid) {
             setError('Помилка')
             return
         }
         console.log('Success')
         setError(null)
-        const token = localStorage.setItem("token", tokenGenerator())
+        
+        const existingUsers = getFromLocalStorage<UserType[]>("users", [])
+        const newUserId = existingUsers.length > 0 ? 
+            Math.max(...existingUsers.map(u => u.id)) + 1 : 1
+
+        const newUser = {
+            id: newUserId,
+            email: email,
+            password: password,
+        }
+
+        const updatedUsers = [...existingUsers, newUser]
+        saveToLocalStorage("users", updatedUsers)
+        
+        saveToLocalStorage("currentUser", newUser)
     }
 
     return (

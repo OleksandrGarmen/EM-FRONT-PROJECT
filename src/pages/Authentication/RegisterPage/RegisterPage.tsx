@@ -3,7 +3,8 @@ import LayoutPage from '../../../layout/layoutPage'
 import register from '../../../fixture/register.json'
 import { validateRegister } from '../../../utils/RegistrationValidation'
 import React from 'react'
-import { tokenGenerator } from '../../../localstorage/localStorageHelper' 
+import { saveToLocalStorage, getFromLocalStorage } from '../../../localstorage/localStorageHelper' 
+import { UserType } from '../../../types/UserType'
 
 const RegisterPage = () => {
     const [userName, setUserName] = React.useState('')
@@ -21,7 +22,22 @@ const RegisterPage = () => {
         }
         console.log('Success')
         setError(null)
-        const token = localStorage.setItem("token", tokenGenerator())
+        
+        const existingUsers = getFromLocalStorage<UserType[]>("users", [])
+        const newUserId = existingUsers.length > 0 ? 
+            Math.max(...existingUsers.map(u => u.id)) + 1 : 1
+
+        const newUser: UserType = {
+            id: newUserId,
+            name: userName,
+            email: email,
+            password: password,
+        }
+
+        const updatedUsers = [...existingUsers, newUser]
+        saveToLocalStorage("users", updatedUsers)
+        
+        saveToLocalStorage("currentUser", newUser)
     }
 
     return (
