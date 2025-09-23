@@ -7,7 +7,7 @@ import SubscribeForm from '../../../Common/Inputs/SubscribeForm';
 import SignupBanner from '../../../Common/SignupBanner/SignupBanner';
 
 const Footer = () => {
-    const isAuthenticated = !!localStorage.getItem('token')
+    const isAuthenticated = !!localStorage.getItem('currentUser')
 
 
     return (
