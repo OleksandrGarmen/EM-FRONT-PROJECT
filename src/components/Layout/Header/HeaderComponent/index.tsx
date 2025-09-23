@@ -7,7 +7,7 @@ import BasicPopover from '../../../Common/Popover/Popover';
 import Modal from '../../../Common/Modal'
     
 const Header = () => {
-    const isAuthenticated = !!localStorage.getItem('token')
+    const isAuthenticated = !!localStorage.getItem('currentUser')
 
     return (
         <header className='header-main-container'>
