@@ -1,14 +1,23 @@
 import './style.css'
 import LayoutPage from '../../../layout/layoutPage'
 import BookComponent from '../../../components/Common/Book'
-import { getFullBooksData } from '../../../localstorage/localStorageHelper'
+import { getCurrentUser, getFullBooksData } from '../../../localstorage/localStorageHelper'
 import SubmitButton from '../../../components/Common/Buttons/SubmitButton'
 import CategoryFilter from '../../../components/Common/Categories/CategoryFilter'
 import { useCategoryFilter } from '../../../utils/categoryFilter'
 import { addBookToCart } from '../../../localstorage/localStorageHelper'
+import { useNavigate } from "react-router"
+import ModalButton from '../../../components/Common/Modal/ModalButton'
+import { useState } from 'react'
+import ModalComponent from '../../../components/Common/Modal/ModalWindow'
 
 const BooksPage = () => {
     const books = getFullBooksData()
+    const navigate = useNavigate()
+    const handleBook = addBookToCart
+    const [isModalOpen, setIsModalOpen] = useState(false)
+    
+
     const {
         selectedCategories,
         filteredItems: filteredBooks,
@@ -17,7 +26,24 @@ const BooksPage = () => {
         hasActiveFilters
     } = useCategoryFilter(books)
 
-    const handleBook = addBookToCart
+    
+
+    const handleBookClick = (bookId: number) => {
+        if (!getCurrentUser()) {
+            navigate(`/register`)
+        } else {
+            addBookToCart(bookId)
+            handleModalOpen()
+        }
+    }
+
+    const handleModalOpen = () => {
+        setIsModalOpen(true)
+    }
+    
+    const handleModalClose = () => {
+        setIsModalOpen(false)
+    }
 
     return (
         <LayoutPage>
@@ -38,7 +64,7 @@ const BooksPage = () => {
                     filteredBooks.map(element => {
                         return (
                             <BookComponent key={element.id} {...element}>
-                                <SubmitButton text='Add to Cart' onClick={() => handleBook(element.id)}/>
+                                <SubmitButton text='Add to Cart' onClick={() => handleBookClick(element.id)}/>
                             </BookComponent>
                         )
                     })
@@ -48,6 +74,7 @@ const BooksPage = () => {
                         No books found for selected categories
                     </div>
                 )}
+                {isModalOpen && <ModalComponent isOpen={isModalOpen} onClose={handleModalClose} />}
             </div>
         </LayoutPage>
     )

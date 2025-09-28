@@ -10,24 +10,26 @@ const BookComponent = (props:BookProps) => {
   const navigate = useNavigate()
 
   return (
-    <div className="book-container" onClick={() => navigate(`/books/${props.id}`)}>
-        <div className="image">
+    <div className="book-container">
+      <div onClick={() => navigate(`/books/${props.id}`)}>
+        <div className="book-image">
             <img 
               src={props.image}
               loading="lazy"
               decoding="async"
               alt="book image"
             />
-            <div className="about-book">
-              <div>
-                <p className="book-title">{props.title}</p>
-                <p className="book-author">{props.authorName}</p>
-              </div>
-              <div className="book-children">
-                {props.children}
-              </div>
-            </div>
         </div>
+        <div>
+          <div className="about-book">
+            <p className="book-title">{props.title}</p>
+            <p className="book-author">{props.authorName}</p>
+          </div>
+        </div> 
+      </div>
+      <div className="book-children">
+        {props.children}
+      </div>
     </div>
   )
 }
