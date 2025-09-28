@@ -2,14 +2,17 @@ import './style.css'
 import LayoutPage from '../../../layout/layoutPage'
 import login from '../../../fixture/login.json'
 import { validateLogin } from '../../../utils/LoginValidation'
-import React from 'react'
+import React, { createContext, useContext } from 'react'
 import { saveToLocalStorage, getFromLocalStorage } from '../../../localstorage/localStorageHelper' 
 import { UserType } from '../../../types/UserType'
+
+export const AuthContext = createContext(false);
 
 const LoginPage = () => {
     const [email, setEmail] = React.useState('')
     const [password, setPassword] = React.useState('')
     const [error, setError] = React.useState<string | null>(null)
+    let isAuth = false
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
@@ -33,11 +36,12 @@ const LoginPage = () => {
 
         const updatedUsers = [...existingUsers, newUser]
         saveToLocalStorage("users", updatedUsers)
-        
+        isAuth = false
         saveToLocalStorage("currentUser", newUser)
     }
 
     return (
+        <AuthContext.Provider value={isAuth}>
         <LayoutPage>
             <div className="login-container">
                 <h2>{login.pageTitle}</h2>
@@ -56,6 +60,7 @@ const LoginPage = () => {
                 </form>
             </div>
         </LayoutPage>
+        </AuthContext.Provider>
     )
 }
 
