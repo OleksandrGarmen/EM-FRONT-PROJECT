@@ -13,7 +13,6 @@ import ModalComponent from '../../../components/Common/Modal/ModalWindow'
 const BooksPage = () => {
     const books = getFullBooksData()
     const navigate = useNavigate()
-    const handleBook = addBookToCart
     const [isModalOpen, setIsModalOpen] = useState(false)
     
 

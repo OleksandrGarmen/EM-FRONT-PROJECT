@@ -2,7 +2,7 @@ import './style.css'
 import { createPortal } from 'react-dom';
 import { useState, useEffect } from 'react';
 import { Minus, Plus, X } from 'lucide-react';
-import { getCurrentUser, getFromLocalStorage, saveToLocalStorage, addBookToCart, Booking, getBooks } from '../../../../localstorage/localStorageHelper';
+import { getCurrentUser, updateBookQuantityInCart, clearCart, getCartItemsWithDetails, removeBookFromCart } from '../../../../localstorage/localStorageHelper';
 import type { Book } from '../../../../types/BookType';
 import SubmitButton from '../../Buttons/SubmitButton';
 
@@ -17,94 +17,23 @@ const ModalComponent = ({ isOpen, onClose } : { isOpen: boolean, onClose: () => 
   const [cartItems, setCartItems] = useState<CartItemWithDetails[]>([])
   const [totalCartPrice, setTotalCartPrice] = useState(0)
 
-  const getUserCartData = (): CartItemWithDetails[] => {
-    const currentUser = getCurrentUser()
-    if (!currentUser) {
-      return []
-    }
-  
-    const carts = getFromLocalStorage<Booking[]>("carts", [])
-    const userCart = carts.find(cart => cart.userId == currentUser.id)
-
-    if (!carts || !userCart?.booksId.length) {
-      return []
-    }
-
-    const allBooks = getBooks()
-
-    const cartWithDetails = userCart.booksId.map(cart => {
-      const book = allBooks.find(book => book.id === cart.bookId)
-      
-      if (!book) {
-        return null
-      }
-
-      return {
-        bookId: cart.bookId,
-        quantity: cart.quantity,
-        book: book,
-        totalPrice: book.price * cart.quantity
-      }
-    }).filter(Boolean) as CartItemWithDetails[]
-
-    return cartWithDetails
-  }
-
-  const updateQuantity = (bookid: number, quantity: number) => {
-    const currentUser = getCurrentUser()
-    if (!currentUser) {
-      return
-    }
-
-    const carts = getFromLocalStorage<Booking[]>("carts", [])
-    const cartIndex = carts.findIndex(cart => cart.userId === currentUser.id)
-
-    if (cartIndex === -1) {
-      return
-    }
-
-    const bookIndex = carts[cartIndex].booksId.findIndex(item => item.bookId === bookid)
-
-    if (bookIndex === -1) {
-      return
-    }
-
-    if (quantity <= 0) {
-      carts[cartIndex].booksId.splice(bookIndex, 1)
-    } else {
-      carts[cartIndex].booksId[bookIndex].quantity = quantity
-    }
-
-    saveToLocalStorage("carts", carts)
-    loadCartData()
-
-    window.dispatchEvent(new Event('storage'))
-  }
-  
-  const removeItem = (bookid: number) => {
-    updateQuantity(bookid, 0)
-  }
-
   const loadCartData = () => {
-    const cartData = getUserCartData()
-    setCartItems(cartData)
+    const cartItemsWithDetails = getCartItemsWithDetails()
+    const totalPrice = cartItemsWithDetails.reduce((total, item) => total + item.totalPrice , 0)
 
-    const total = cartData.reduce((sum, item) => sum + item.totalPrice, 0)
-    setTotalCartPrice(total)
+    setCartItems(cartItemsWithDetails)
+    setTotalCartPrice(totalPrice)
   }
 
-  useEffect(() => {
-    const handleStorageChange = () => {
-      loadCartData()
-    }
+  const updateQuantity = (bookId: number, newQuantity: number) => {
+    updateBookQuantityInCart(bookId, newQuantity)
+    loadCartData()
+  }
 
-    window.addEventListener("storage", handleStorageChange);
-    loadCartData();
-
-    return () => {
-      window.removeEventListener("storage", handleStorageChange);
-    }
-  }, [])
+  const removeItem = (bookId: number) => {
+    removeBookFromCart(bookId)
+    loadCartData()
+  }
 
   useEffect(() => {
     if (isOpen) {
@@ -182,7 +111,11 @@ const ModalComponent = ({ isOpen, onClose } : { isOpen: boolean, onClose: () => 
 
               <div className="cart-footer">
                 <div className="cart-total">
-                  <SubmitButton text={`Total: $${totalCartPrice.toFixed(2)}`} />
+                  <SubmitButton text={`Total: $${totalCartPrice.toFixed(2)}`} onClick={() => {
+                    clearCart()
+                    setCartItems([])
+                    setTotalCartPrice(0)
+                  }}/>
                 </div>
               </div>
             </>
