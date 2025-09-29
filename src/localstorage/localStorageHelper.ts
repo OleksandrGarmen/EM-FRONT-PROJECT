@@ -2,7 +2,9 @@ import type { Author } from "../types/AuthorType";
 import type { Book, FullBookData } from "../types/BookType";
 import type { Category } from "../types/CategoryType";
 import type { Review } from "../types/Feedback";
-import { UserType } from "../types/UserType";
+import type { UserType } from "../types/UserType";
+import type { Booking } from "../types/Booking";
+import type { ProductInCart } from "../types/Booking";
 
 export function saveToLocalStorage(key: string, value: any): void {
   try {
@@ -121,15 +123,33 @@ export function logoutUser(): void {
     removeFromLocalStorage("currentUser");
 }
 
-export type Booking = {
-  id: number;
-  userId: number;
-  booksId: ProductInCart[];
-  bookingDate: string;
-  totalPrice: number;
+export function getBooksWithCart(): Book[] | null {
+  const curentUser:UserType = localStorage.getFromLocalStorage("currentUser")
+
+  if(!curentUser)
+    return null
+
+  const carts = getFromLocalStorage<Booking[]>("carts", []);
+  const booking = carts.find(b => b.userId === curentUser.id);
+
+  if(!booking)
+    return null
+
+  const books = getBooks()
+
+  if(!books)
+    return null
+
+  return books.filter(b => booking.booksId.some(bc => bc.bookId === b.id))
 }
 
-export type ProductInCart = {
-  bookId: number;
-  quantity: number;
+export function clearCart(): void {
+  const curentUser:UserType = localStorage.getFromLocalStorage("currentUser");
+  if(!curentUser)
+    return;
+  let carts = getFromLocalStorage<Booking[]>("carts", []);
+  carts = carts.filter(b => b.userId !== curentUser.id);
+  
+  saveToLocalStorage("carts", carts);
 }
+
