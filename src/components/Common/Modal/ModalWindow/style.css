@@ -26,7 +26,8 @@ body.active-modal {
   line-height: 1.4;
   background: #f1f1f1;
   padding: 30px;
-  border-radius: 30px;
+  margin: 10px;
+  border-radius: 5px;
   max-width: 600px;
   min-width: 400px;
   max-height: 80vh;
@@ -137,6 +138,25 @@ body.active-modal {
   font-weight: 500;
 }
 
+.book-container-purshare {
+  display: flex;
+  justify-content: space-between;
+}
+
+.book-info-container-purshare {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.book-control-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  
+}
+
 .quantity-controls {
   display: flex;
   align-items: center;
@@ -191,8 +211,8 @@ body.active-modal {
 .item-total {
   margin: 0;
   font-weight: 700;
-  color: #2c5aa0;
-  font-size: 16px;
+  color: #535353;
+  font-size: 13px;
 }
 
 .remove-btn {
@@ -226,9 +246,10 @@ body.active-modal {
 }
 
 .cart-footer {
-  border-top: 2px solid #ddd;
-  padding-top: 20px;
-  margin-top: 20px;
+  position: sticky;
+  background: #f1f1f1;
+  bottom: 0;
+  padding: 5px;
 }
 
 .checkout-btn {

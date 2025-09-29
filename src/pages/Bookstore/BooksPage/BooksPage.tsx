@@ -7,7 +7,6 @@ import CategoryFilter from '../../../components/Common/Categories/CategoryFilter
 import { useCategoryFilter } from '../../../utils/categoryFilter'
 import { addBookToCart } from '../../../localstorage/localStorageHelper'
 import { useNavigate } from "react-router"
-import ModalButton from '../../../components/Common/Modal/ModalButton'
 import { useState } from 'react'
 import ModalComponent from '../../../components/Common/Modal/ModalWindow'
 
@@ -47,18 +46,20 @@ const BooksPage = () => {
 
     return (
         <LayoutPage>
-            <CategoryFilter 
-                selectedCategories={selectedCategories}
-                onCategoryChange={handleCategoryChange}
-            />
-            {hasActiveFilters && (
-                <button 
-                    className="clear-filters-btn"
-                    onClick={clearAllCategories}
-                >
-                    Clear All Filters
-                </button>
-            )}
+            <div className='filter-container'>
+                <CategoryFilter 
+                    selectedCategories={selectedCategories}
+                    onCategoryChange={handleCategoryChange}
+                />
+                {hasActiveFilters && (
+                    <button 
+                        className='clear-filters-btn'
+                        onClick={clearAllCategories}
+                    >
+                        Clear All Filters
+                    </button>
+                )}
+            </div>
             <div className='books-container'>
                 {
                     filteredBooks.map(element => {

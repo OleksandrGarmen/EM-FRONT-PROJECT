@@ -136,43 +136,46 @@ const ModalComponent = ({ isOpen, onClose } : { isOpen: boolean, onClose: () => 
             <>
               <ul className='shop-list'>
                 {cartItems.map(item => (
-                  <li key={item.bookId}>
-                    <div className='cart-image'>
-                      <img 
-                        src={item.book.image} 
-                        alt={item.book.title} 
-                        className='book-cart-image'
-                      />
+                  <li key={item.bookId} className='book-container-purshare'>
+                    <div className='book-info-container-purshare'>
+                      <div className='cart-image'>
+                        <img 
+                          src={item.book.image} 
+                          alt={item.book.title} 
+                          className='book-cart-image'
+                        />
+                      </div>
+                      
+                      <div>
+                        <h4 className="book-title">{item.book.title}</h4>
+                        <p className="book-price">${item.book.price.toFixed(2)}</p>
+                      </div>
+                    </div>
+                    <div className='book-control-container'>
+                      <div className="quantity-controls">
+                        <button 
+                          onClick={() => updateQuantity(item.bookId, item.quantity - 1)}
+                          className="quantity-btn"
+                        >
+                          <Minus size={16} />
+                        </button>
+                        <span className="quantity">{item.quantity}</span>
+                        <button 
+                          onClick={() => updateQuantity(item.bookId, item.quantity + 1)}
+                          className="quantity-btn"
+                        >
+                          <Plus size={16} />
+                        </button>
+                      </div>
+                      <div className="item-actions">
+                        <p className="item-total">${item.totalPrice.toFixed(2)}</p>
+                        <SubmitButton 
+                          onClick={() => removeItem(item.bookId)}
+                          text='Remove'
+                        />
+                      </div>
                     </div>
                     
-                    <div>
-                      <h4 className="book-title">{item.book.title}</h4>
-                      <p className="book-price">${item.book.price.toFixed(2)}</p>
-                    </div>
-                    
-                    <div className="quantity-controls">
-                      <button 
-                        onClick={() => updateQuantity(item.bookId, item.quantity - 1)}
-                        className="quantity-btn"
-                      >
-                        <Minus size={16} />
-                      </button>
-                      <span className="quantity">{item.quantity}</span>
-                      <button 
-                        onClick={() => updateQuantity(item.bookId, item.quantity + 1)}
-                        className="quantity-btn"
-                      >
-                        <Plus size={16} />
-                      </button>
-                    </div>
-                    
-                    <div className="item-actions">
-                      <p className="item-total">${item.totalPrice.toFixed(2)}</p>
-                      <SubmitButton 
-                        onClick={() => removeItem(item.bookId)}
-                        text='Remove'
-                      />
-                    </div>
                   </li>
                 ))}
               </ul>
