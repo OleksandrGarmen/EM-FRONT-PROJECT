@@ -6,6 +6,13 @@ import type { UserType } from "../types/UserType";
 import type { Booking } from "../types/Booking";
 import type { ProductInCart } from "../types/Booking";
 
+type CartItemWithDetails = {
+  bookId: number;
+  quantity: number;
+  book: Book;
+  totalPrice: number;
+}
+
 export function saveToLocalStorage(key: string, value: any): void {
   try {
     localStorage.setItem(key, JSON.stringify(value));
@@ -124,13 +131,13 @@ export function logoutUser(): void {
 }
 
 export function getBooksWithCart(): Book[] | null {
-  const curentUser:UserType = localStorage.getFromLocalStorage("currentUser")
+  const currentUser: UserType | null = getFromLocalStorage<UserType | null>("currentUser", null);
 
-  if(!curentUser)
+  if(!currentUser)
     return null
 
   const carts = getFromLocalStorage<Booking[]>("carts", []);
-  const booking = carts.find(b => b.userId === curentUser.id);
+  const booking = carts.find(b => b.userId === currentUser.id);
 
   if(!booking)
     return null
@@ -144,12 +151,72 @@ export function getBooksWithCart(): Book[] | null {
 }
 
 export function clearCart(): void {
-  const curentUser:UserType = localStorage.getFromLocalStorage("currentUser");
-  if(!curentUser)
+  const currentUser: UserType | null = getFromLocalStorage<UserType | null>("currentUser", null);
+  if(!currentUser)
     return;
   let carts = getFromLocalStorage<Booking[]>("carts", []);
-  carts = carts.filter(b => b.userId !== curentUser.id);
+  carts = carts.filter(b => b.userId !== currentUser.id);
   
   saveToLocalStorage("carts", carts);
 }
 
+export function getCartItemsWithDetails(): CartItemWithDetails[] {
+  const currentUser = getCurrentUser()
+  if (!currentUser) return []
+
+  const carts = getFromLocalStorage<Booking[]>("carts", []);
+  const userCart = carts.find(cart => cart.userId === currentUser.id);
+  if (!userCart) return []
+
+  const allBooks = getBooks()
+  
+  return userCart.booksId.map(cartItem => {
+    const book = allBooks.find(b => b.id === cartItem.bookId);
+    if (!book) return null;
+    
+    return {
+      bookId: cartItem.bookId,
+      quantity: cartItem.quantity,
+      book: book,
+      totalPrice: book.price * cartItem.quantity
+    };
+  }).filter(item => item !== null) as CartItemWithDetails[];
+}
+
+export function updateBookQuantityInCart(bookId: number, newQuantity: number): void {
+  const currentUser = getCurrentUser()
+  if (!currentUser) return
+
+  const carts = getFromLocalStorage<Booking[]>("carts", [])
+  const cartIndex = carts.findIndex(cart => cart.userId === currentUser.id)
+
+  if (cartIndex < -1) return
+  
+  const bookIndex = carts[cartIndex].booksId.findIndex(item => item.bookId === bookId)
+  
+  if (bookIndex === -1) return
+
+  if (newQuantity <= 0) {
+    carts[cartIndex].booksId.splice(bookIndex, 1)
+  } else {
+    carts[cartIndex].booksId[bookIndex].quantity = newQuantity
+  }
+
+  saveToLocalStorage("carts", carts)
+}
+
+
+export function removeBookFromCart (bookId: number): void {
+  const currentUser = getCurrentUser()
+  if (!currentUser) return 
+
+  const carts = getFromLocalStorage<Booking[]>("carts", [])
+  const cartIndex = carts.findIndex(cart => cart.userId === currentUser.id)
+
+  if (cartIndex < -1) return
+
+  carts[cartIndex].booksId = carts[cartIndex].booksId.filter(item => item.bookId !== bookId)
+
+  saveToLocalStorage("carts", carts)
+
+}

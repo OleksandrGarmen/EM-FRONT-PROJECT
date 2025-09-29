@@ -53,7 +53,13 @@ const CategoryFilter = ({
         }}
       >
         {allCategories?.map((item) => (
-          <MenuItem key={item.id} value={item.id.toString()}>
+          <MenuItem key={item.id} value={item.id.toString()}
+            onClick={() => {
+              const id = item.id.toString()
+              const isChecked = !selectedCategories.includes(id)
+              onCategoryChange(id, isChecked)
+            }}
+          >
             <Checkbox
             checked={selectedCategories.includes(item.id.toString())}
             sx={{
