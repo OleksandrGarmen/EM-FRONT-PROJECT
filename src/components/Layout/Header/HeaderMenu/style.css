@@ -15,6 +15,10 @@
     cursor: pointer;
 }
 
+.header-links-active {
+    text-decoration: underline;
+}
+
 .header-links:hover {
     color: #858383;
 }

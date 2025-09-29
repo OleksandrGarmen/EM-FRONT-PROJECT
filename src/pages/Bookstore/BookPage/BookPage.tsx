@@ -54,7 +54,7 @@ const BookPage = () => {
                             Created At:{" "}
                             {createdAt? createdAt.toLocaleString(): ''}
                         </li>
-                        <li>Price: {book?.price}$</li>
+                        <li>Price: ${book?.price}</li>
                         <li><SubmitButton text='Add to Cart' /></li>
                     </ul>
                 </div>
@@ -85,4 +85,3 @@ const BookPage = () => {
 }
 
 export default BookPage
-

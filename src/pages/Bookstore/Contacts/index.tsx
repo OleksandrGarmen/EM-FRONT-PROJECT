@@ -30,10 +30,17 @@ const Contacts = () => {
                         </form>
                     </div>
                     <div className="map-section">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2056.0742953779394!2d32.0571158!3d49.4316609!3m2!1i1024!2i768!4f17!3m3!1m2!1s0x0%3A0x0!2zNDnCsDI1JzIyLjciTiAzMsKwMDMnMzQuNyJF!5e0!3m2!1suk!2sua!4v1692714776982!5m2!1suk!2sua"
-                        ></iframe>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2648.5796612762076!2d32.056987515892245!3d49.43167337934845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d14d29cfb1c58f%3A0x7dcbd702c97e0d55!2z0LLRg9C70LjRhtGPINCc0L7QsdC-0YDQsNGF0LAsIDQ0LCDQp9C10YDQutCw0Y8sINCl0LDRgNC60L7QstGB0LrQsNGPINC-0LHQu9Cw0YHRgtGMLCAxODA0MA!5e0!3m2!1suk!2sua!4v1692714776982!5m2!1suk!2sua"
+                        width="100%"
+                        height="450"
+                        style={{ border: 0 }}
+                        allowFullScreen
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                    ></iframe>
                     </div>
+
                 </div>
         </LayoutPage>
     );

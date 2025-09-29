@@ -25,7 +25,6 @@
     font-size: 48px;
     line-height: 100%;
     letter-spacing: 0%;
-    text-align: center;
 }
 
 .book-info-list {
@@ -39,10 +38,10 @@
     font-weight: 400;
     font-size: 24px;
     line-height: 140%;
-    text-align: left;
 }
 
-.book-desctipton-container { 
+.book-desctipton-container {
+    text-align: left;
     margin-top: 15px;
     display: grid;
     gap: 10px;

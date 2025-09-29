@@ -50,7 +50,7 @@ function App() {
               return (
                   <BookComponent key={element.id} {...element}>
                       <div className="children-price">
-                          <p className='book-price'>{element.price}</p>
+                          <p className='book-price'>${element.price}</p>
                       </div>
                   </BookComponent>
               )
