@@ -7,26 +7,26 @@ const Contacts = () => {
         <LayoutPage>
                 <div className="contact-container">
                     <div className="contact-info-section">
-                        <h1 className="contacts-title">Контакти</h1>
+                        <h1 className="contacts-title">Contacts</h1>
 
                         <div className="contact-info">
-                            <p><strong>Адреса:</strong> Вулиця Свято-Макаріївська, 44, Черкаси</p>
-                            <p><strong>Телефон:</strong> <a href="tel:+380441234567">+38 (044) 123-45-67</a></p>
+                            <p><strong>Address:</strong> 44 Svyato-Makariivska Street, Cherkasy</p>
+                            <p><strong>Phone number:</strong> <a href="tel:+380441234567">+38 (044) 123-45-67</a></p>
                             <p><strong>Email:</strong> <a href="mailto:test@example.com">test@example.com</a></p>
                         </div>
 
                         <div className="working-hours">
-                            <p><strong>Графік роботи:</strong></p>
-                            <p>Пн–Пт: 08:00–18:00</p>
-                            <p>Сб: 10:00–16:00</p>
-                            <p>Нд: вихідний</p>
+                            <p><strong>Working hours:</strong></p>
+                            <p>Mon-Fri: 8:00 a.m.6:00 p.m.</p>
+                            <p>Sat: 10:00 a.m.4:00 p.m.</p>
+                            <p>Sun: day off</p>
                         </div>
 
                         <form className="contact-form">
-                            <input type="text" placeholder="Ваше ім'я" />
-                            <input type="email" placeholder="Ваш email" />
-                            <textarea placeholder="Ваше повідомлення"></textarea>
-                            <SubmitButton text="Відправити" />
+                            <input type="text" placeholder="Your name" />
+                            <input type="email" placeholder="Your email" />
+                            <textarea placeholder="Your message"></textarea>
+                            <SubmitButton text="Send" />
                         </form>
                     </div>
                     <div className="map-section">

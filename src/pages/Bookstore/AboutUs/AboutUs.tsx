@@ -5,36 +5,32 @@ const AboutUs = () => {
     return (
         <LayoutPage>
             <div className="about-us-container">
-                <h1 className="hero-title">Ласкаво просимо до Book Heaven</h1>
+                <h1 className="hero-title">Welcome to Book Heaven</h1>
                 <section className="section">
-                    <h2>Наша історія</h2>
+                    <h2>Our history</h2>
                     <p>
-                        Магазин відкрився у 2010 році з маленької крамнички, де ми хотіли зібрати
-                        найцікавіші книги для наших читачів. З того часу ми стали затишним місцем
-                        для всіх, хто любить читати.
+                        The store opened in 2010 as a small shop where we wanted to collect the most interesting books for our readers. Since then, we have become a cozy place for everyone who loves to read.
                     </p>
                 </section>
                 <section className="section">
-                    <h2>Наші цінності</h2>
+                    <h2>Our values</h2>
                     <p>
-                        Ми цінуємо знання, підтримку локальних авторів та любов до книги. Для нас
-                        важливо, щоб кожен гість відчував себе частиною книжкової родини.
+                        We value knowledge, support for local authors, and a love of books. It is important to us that every guest feels like part of the book family. We are open to new ideas and suggestions. We are always ready to listen to your wishes and needs.
                     </p>
                 </section>
                 <section className="section">
-                    <h2>Чим ми особливі</h2>
+                    <h2>What makes us special</h2>
                     <ul>
-                        <li>Рідкісні та авторські видання</li>
-                        <li>Консультації від експертів та рекомендації</li>
-                        <li>Читальні та заходи для дорослих і дітей</li>
-                        <li>Онлайн-замовлення з доставкою по всій Україні</li>
+                        <li>Rare and limited editions</li>
+                        <li>Expert advice and recommendations</li>
+                        <li>Reading rooms and events for adults and children</li>
+                        <li>Online orders with delivery throughout Ukraine</li>
                     </ul>
                 </section>
                 <section className="section">
-                    <h2>Завітайте до нас</h2>
+                    <h2>Come visit us</h2>
                     <p>
-                        Відкрийте нові світи разом із Book Heaven. Підпишіться на нашу розсилку, щоб
-                        першими дізнаватися про нові надходження та події.
+                        Discover new worlds with Book Heaven. Subscribe to our newsletter to be the first to know about new arrivals and events.
                     </p>
                 </section>
             </div>
