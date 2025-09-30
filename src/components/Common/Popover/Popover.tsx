@@ -2,7 +2,6 @@ import * as React from 'react';
 import Popover from '@mui/material/Popover';
 import Typography from '@mui/material/Typography';
 import LogoutButton from '../Buttons/Logout/index';
-import './style.css'
 
 function BasicPopover ({children} : {children: React.ReactNode}) {
   const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
