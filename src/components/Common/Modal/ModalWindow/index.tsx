@@ -1,8 +1,13 @@
 import './style.css'
 import { createPortal } from 'react-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import { Minus, Plus, X } from 'lucide-react';
-import { getCurrentUser, updateBookQuantityInCart, clearCart, getCartItemsWithDetails, removeBookFromCart } from '../../../../localstorage/localStorageHelper';
+import { 
+  getCartItemsWithDetails, 
+  updateBookQuantityInCart, 
+  removeBookFromCart, 
+  clearCart 
+} from '../../../../localstorage/localStorageHelper';
 import type { Book } from '../../../../types/BookType';
 import SubmitButton from '../../Buttons/SubmitButton';
 
@@ -13,27 +18,27 @@ type CartItemWithDetails = {
   totalPrice: number;
 }
 
-const ModalComponent = ({ isOpen, onClose } : { isOpen: boolean, onClose: () => void }) => {
+const ModalComponent = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => void }) => {
   const [cartItems, setCartItems] = useState<CartItemWithDetails[]>([])
-  const [totalCartPrice, setTotalCartPrice] = useState(0)
 
-  const loadCartData = () => {
+  const loadCartData = useCallback(() => {
     const cartItemsWithDetails = getCartItemsWithDetails()
-    const totalPrice = cartItemsWithDetails.reduce((total, item) => total + item.totalPrice , 0)
-
     setCartItems(cartItemsWithDetails)
-    setTotalCartPrice(totalPrice)
-  }
+  }, [])
 
-  const updateQuantity = (bookId: number, newQuantity: number) => {
+  const totalCartPrice = useMemo(() => {
+    return cartItems.reduce((total, item) => total + item.totalPrice, 0)
+  }, [cartItems])
+
+  const updateQuantity = useCallback((bookId: number, newQuantity: number) => {
     updateBookQuantityInCart(bookId, newQuantity)
     loadCartData()
-  }
+  }, [loadCartData])
 
-  const removeItem = (bookId: number) => {
+  const removeItem = useCallback((bookId: number) => {
     removeBookFromCart(bookId)
     loadCartData()
-  }
+  }, [loadCartData])
 
   useEffect(() => {
     if (isOpen) {
@@ -46,7 +51,7 @@ const ModalComponent = ({ isOpen, onClose } : { isOpen: boolean, onClose: () => 
     return () => {
       document.body.classList.remove("active-modal")
     }
-  }, [isOpen])
+  }, [isOpen, loadCartData])
 
   return createPortal(
     <div className="modal">
@@ -74,7 +79,6 @@ const ModalComponent = ({ isOpen, onClose } : { isOpen: boolean, onClose: () => 
                           className='book-cart-image'
                         />
                       </div>
-                      
                       <div>
                         <h4 className="book-title">{item.book.title}</h4>
                         <p className="book-price">${item.book.price.toFixed(2)}</p>
@@ -104,18 +108,19 @@ const ModalComponent = ({ isOpen, onClose } : { isOpen: boolean, onClose: () => 
                         />
                       </div>
                     </div>
-                    
                   </li>
                 ))}
               </ul>
 
               <div className="cart-footer">
                 <div className="cart-total">
-                  <SubmitButton text={`Total: $${totalCartPrice.toFixed(2)}`} onClick={() => {
-                    clearCart()
-                    setCartItems([])
-                    setTotalCartPrice(0)
-                  }}/>
+                  <SubmitButton 
+                    text={`Total: $${totalCartPrice.toFixed(2)}`} 
+                    onClick={() => {
+                      clearCart()
+                      setCartItems([])
+                    }}
+                  />
                 </div>
               </div>
             </>
