@@ -16,12 +16,12 @@ const RegisterPage = () => {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
         let isValid = validateRegister(userName, email, password, repeatPassword)
-        if (!isValid) {
-            setError('Помилка')
+        if (isValid) {
+            setError(isValid)
             return
         }
-        console.log('Success')
         setError(null)
+        console.log('Success')
         
         const existingUsers = getFromLocalStorage<UserType[]>("users", [])
         const newUserId = existingUsers.length > 0 ? 
@@ -47,19 +47,19 @@ const RegisterPage = () => {
                 <form className="register-form" onSubmit={handleSubmit}>
                     <div className="form-group">
                         <label>{register.usernameLabel}</label>
-                        <input type="text" name='userName' onChange={(e) => setUserName(e.target.value)} placeholder={register.usernameLabel} />
+                        <input type="text" name='userName' onChange={(e) => setUserName(e.target.value)} />
                     </div>
                     <div className="form-group">
                         <label>{register.emailLabel}</label>
-                        <input type="email" name='email' onChange={(e) => setEmail(e.target.value)} placeholder={register.emailLabel} />
+                        <input type="email" name='email' onChange={(e) => setEmail(e.target.value)} />
                     </div>
                     <div className="form-group">
                         <label>{register.passwordLabel}</label>
-                        <input type="password" name='password' onChange={(e) => setPassword(e.target.value)} placeholder={register.passwordLabel} />
+                        <input type="password" name='password' onChange={(e) => setPassword(e.target.value)} />
                     </div>
                     <div className="form-group">
                         <label>{register.passwordLabel}</label>
-                        <input type="password" name='repeatPassword' onChange={(e) => setRepeatPassword(e.target.value)} placeholder={register.passwordLabel} />
+                        <input type="password" name='repeatPassword' onChange={(e) => setRepeatPassword(e.target.value)} />
                     </div>
                     {error && <div className="error-message">{error}</div>}
                     <button type="submit">{register.registerButton}</button>

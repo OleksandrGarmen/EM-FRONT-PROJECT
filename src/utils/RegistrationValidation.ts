@@ -1,33 +1,27 @@
+import { validateEmail, validatePassword, validateNotEmpty } from './Validators'
+
 export const validateRegister = (
   username: string,
   email: string,
   password: string,
   repeatPassword: string
-): boolean => {
-  if (!username.trim() || !email.trim() || !password.trim() || !repeatPassword.trim()) {
-    return false
-  }
+): string | null => {
+  const usernameEmptyError = validateNotEmpty(username, 'Username')
+  if (usernameEmptyError) return usernameEmptyError
 
-  if (username.length < 2) {
-    return false
-  }
+  const emailEmptyError = validateNotEmpty(email, 'Email')
+  if (emailEmptyError) return emailEmptyError
 
-  if (password.length < 8) {
-    return false
-  }
+  const emailError = validateEmail(email)
+  if (emailError) return emailError
 
-  if (!/(?=.*\d)(?=.*[a-zA-Z])(?=.*[!#\$%&\?]).{8,}/.test(password)) {
-    return false
-  }
+  const validateEmtyPassword = validateNotEmpty(password, 'Password')
+  if (validateEmtyPassword) return validateEmtyPassword
 
-  if (
-    !/^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test(email)) {
-    return false
-  }
+  const validatePasswordError = validatePassword(password)
+  if (validatePasswordError) return validatePasswordError
 
-  if (password !== repeatPassword) {
-    return false
-  }
+  if (password !== repeatPassword) return 'Passwords do not match'
 
-  return true
+  return null
 }

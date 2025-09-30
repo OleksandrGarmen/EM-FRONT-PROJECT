@@ -17,12 +17,12 @@ const LoginPage = () => {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
         let isValid = validateLogin( email, password, )
-        if (!isValid) {
-            setError('Помилка')
+        if (isValid) {
+            setError(isValid)
             return
         }
-        console.log('Success')
         setError(null)
+        console.log('Success')
         
         const existingUsers = getFromLocalStorage<UserType[]>("users", [])
         const newUserId = existingUsers.length > 0 ? 
