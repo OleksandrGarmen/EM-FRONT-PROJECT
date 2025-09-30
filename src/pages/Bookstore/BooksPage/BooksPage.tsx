@@ -3,7 +3,7 @@ import LayoutPage from '../../../layout/layoutPage'
 import BookComponent from '../../../components/Common/Book'
 import { getCurrentUser, getFullBooksData } from '../../../localstorage/localStorageHelper'
 import SubmitButton from '../../../components/Common/Buttons/SubmitButton'
-import CategoryFilter from '../../../components/Common/Categories/CategoryFilter'
+import CategorieFilterComponent from '../../../components/Common/Categories/CategoryFilterComponent'
 import { useCategoryFilter } from '../../../utils/categoryFilter'
 import { addBookToCart } from '../../../localstorage/localStorageHelper'
 import { useNavigate } from "react-router"
@@ -45,20 +45,13 @@ const BooksPage = () => {
 
     return (
         <LayoutPage>
-            <div className='filter-container'>
-                <CategoryFilter 
-                    selectedCategories={selectedCategories}
-                    onCategoryChange={handleCategoryChange}
-                />
-                {hasActiveFilters && (
-                    <button 
-                        className='clear-filters-btn'
-                        onClick={clearAllCategories}
-                    >
-                        Clear All Filters
-                    </button>
-                )}
-            </div>
+            <CategorieFilterComponent 
+                selectedCategories={selectedCategories}
+                handleCategoryChange={handleCategoryChange}
+                clearAllCategories={clearAllCategories}
+                hasActiveFilters={hasActiveFilters}
+
+            />
             <div className='books-container'>
                 {
                     filteredBooks.map(element => {
