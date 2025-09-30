@@ -1,10 +1,6 @@
-import { ShoppingBasket } from 'lucide-react';
 import React, { useState, useEffect } from 'react';
-import { getCurrentUser, getFromLocalStorage, Booking } from '../../../../localstorage/localStorageHelper';
-
-interface ModalButtonProps {
-  
-}
+import { getCurrentUser, getFromLocalStorage } from '../../../../localstorage/localStorageHelper';
+import { Booking } from '../../../../types/Booking';
 
 const ModalButton = ({ onClick, children }: {onClick?: () => void, children: React.ReactNode}) => {
   const [cartItemsCount, setCartItemsCount] = useState(0)
