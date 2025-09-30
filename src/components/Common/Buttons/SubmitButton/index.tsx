@@ -8,7 +8,7 @@ const SubmitButton = ({ text, link, backgroudColor = "#DB5408", onClick }: { tex
             className={`submit-button ${backgroudColor ? 'custom' : ''}`}
             onClick={onClick}
         >
-           <a href={link} className='link'>{text}</a>
+           <a href={link} className="decoration-0 text-black">{text}</a>
         </button>
     )
 }

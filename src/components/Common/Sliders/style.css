@@ -9,6 +9,22 @@
     color: #cc5200 !important;
 }
 
+.slider-rating {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.sllider-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.sllider-avatar-container {
+  flex-shrink: 0;
+}
 
 .my-swiper {
   cursor: pointer;
