@@ -1,19 +1,17 @@
-export const validateLogin = (email: string, password: string): boolean => {
-  if (!email.trim() || !password.trim()) {
-    return false
-  }
+import { validateEmail, validateNotEmpty, validatePassword } from './Validators'
 
-  if (password.length < 8) {
-    return false
-  }
+export const validateLogin = (email: string, password: string): string | null => {
+  const emailEmptyError = validateNotEmpty(email, 'Email')
+  if (emailEmptyError) return emailEmptyError
 
-  if (!/(?=.*\d)(?=.*[a-zA-Z])(?=.*[!#\$%&\?]).{8,}/.test(password)) {
-    return false
-  }
+  const emailError = validateEmail(email)
+  if (emailError) return emailError
 
-  if (!/^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test(email)) {
-    return false
-  }
+  const validateEmtyPassword = validateNotEmpty(password, 'Password')
+  if (validateEmtyPassword) return validateEmtyPassword
 
-  return true
+  const validatePasswordError = validatePassword(password)
+  if (validatePasswordError) return validatePasswordError
+
+  return null
 }
