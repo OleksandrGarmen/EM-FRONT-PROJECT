@@ -1,21 +1,26 @@
 import './style.css'
 import LayoutPage from '../../../layout/layoutPage'
-import { useParams } from 'react-router'
-import { getBooks, getAuthors, addBookToCart } from '../../../localstorage/localStorageHelper'
-import CategoryFilter from '../../../components/Common/Categories/CategoryFilter'
+import { useNavigate, useParams } from 'react-router'
+import { getBooks, getAuthors, addBookToCart, getCurrentUser } from '../../../localstorage/localStorageHelper'
 import SubmitButton from '../../../components/Common/Buttons/SubmitButton'
 import BookComponent from '../../../components/Common/Book'
 import { useCategoryFilter } from '../../../utils/categoryFilter'
 
 import type { Book } from '../../../types/BookType'
 import type { Author } from '../../../types/AuthorType'
+import { useState } from 'react'
+import ModalComponent from '../../../components/Common/Modal/ModalWindow'
+import CategorieFilterComponent from '../../../components/Common/Categories/CategoryFilterComponent'
 
 const BookPage = () => {
     const { id } = useParams<{ id: string }>()
     const books: Book[] = getBooks()
     const book = books.find(book => book.id === Number(id) )
     const authors: Author[] = getAuthors()
+    const navigate = useNavigate()
     const author = authors.find(authors => authors.id === book?.authorId)
+    const [isModalOpen, setIsModalOpen] = useState(false)
+
     const {
         selectedCategories,
         filteredItems: filteredBooks,
@@ -25,22 +30,36 @@ const BookPage = () => {
     } = useCategoryFilter(books)
 
     let createdAt = book?.createdAt ? new Date(book.createdAt) : null
-    const handleBook = addBookToCart
+
+    const handleBookClick = (bookId: number) => {
+        if (!getCurrentUser()) {
+            navigate(`/register`)
+        } else {
+            addBookToCart(bookId)
+            handleModalOpen()
+        }
+    }
+
+    const handleModalOpen = () => {
+        setIsModalOpen(true)
+    }
+    
+    const handleModalClose = () => {
+        setIsModalOpen(false)
+    }
+
+    if (!book) {
+        return <LayoutPage><p>Book not found</p></LayoutPage>
+    }
 
     return (
         <LayoutPage>
-            <CategoryFilter 
+            <CategorieFilterComponent 
                 selectedCategories={selectedCategories}
-                onCategoryChange={handleCategoryChange}
+                handleCategoryChange={handleCategoryChange}
+                clearAllCategories={clearAllCategories}
+                hasActiveFilters={hasActiveFilters}
             />
-            {hasActiveFilters && (
-                <button 
-                    className="clear-filters-btn"
-                    onClick={clearAllCategories}
-                >
-                    Clear All Filters
-                </button>
-            )}
             <div className='book-page-container'>
                 <div>
                     <img src={book?.image} alt="Book image" />
@@ -55,7 +74,12 @@ const BookPage = () => {
                             {createdAt? createdAt.toLocaleString(): ''}
                         </li>
                         <li>Price: ${book?.price}</li>
-                        <li><SubmitButton text='Add to Cart' /></li>
+                        <li>
+                            <SubmitButton 
+                                text='Add to Cart' 
+                                onClick={() => handleBookClick(book.id)}
+                            />
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -69,7 +93,7 @@ const BookPage = () => {
                 { filteredBooks.slice(0, 4).map(element => {
                     return (
                         <BookComponent key={element.id} {...element}>
-                            <SubmitButton text='Add to Cart' onClick={() => handleBook(element.id)}/>
+                            <SubmitButton text='Add to Cart' onClick={() => handleBookClick(element.id)}/>
                         </BookComponent>
                     )
                 })}
@@ -79,6 +103,7 @@ const BookPage = () => {
                     </div>
                 )}
                 </div>
+                {isModalOpen && <ModalComponent isOpen={isModalOpen} onClose={handleModalClose} />}
             </div>
         </LayoutPage>
     )
